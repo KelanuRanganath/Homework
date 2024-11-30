@@ -1,0 +1,70 @@
+\section*{Problem 3.16}
+\subsection*{a}
+Initially there are $2^N$ possible microstates, so the entropy is, $S_{initial} = k_B N \ln(2)$. After every bit is set to $0$ or $1$ the final multiplicity is then $1$ and the entropy is $S_{final} = k_B\ln(1) = 0$. However, we know that entropy can, at best stay constant for a reversible process, so we have to create $S_{initial}$ entropy elsewhere.
+\eq{
+\delta S &= S_{initial}
+}
+\subsection*{b}
+From the thermodynamic identity, assuming the volume is constant, we get $T\delta S = \delta U$. Plugging in values we get
+\eq{
+\delta U &= (300K)(1.380649\cdot10^{-23}\frac{J}{K})2^{33}\ln(2)\\
+&\approx 2.47\cdot10^{-11} J
+}
+Modern DDR4 ram supports up to $3200 \frac{MT}{s}$, where the units are mega-transfers per second. A single transfer depends on the bus width, assuming a $64bit$ bus width we can calculate how many $J$ of energy could be transferred to the environment per second
+\eq{
+(3200\cdot 10^6 \frac{T}{s})(64\frac{bits}{T})(2^{-33}\frac{Gb}{bits})(2.47\cdot10^{-11} \frac{J}{Gb}) &\approx 0.588nW
+}
+A typical LED light bulb transfers $9W$ of power, so the heat transferred from writing to memory is negligible.
+
+\section*{Problem 3.31}
+\eq{
+C_P &= T ddT0S \\
+\delta S &= \int_{T_i}^{T_f} \frac{C_P}{T}dT\\
+&= \int_{T_i}^{T_f} (\frac{a}{T}+b-\frac{c}{T^3}) dT\\
+&= a \ln(\frac{T_f}{T_i})+b(T_f-T_i) + \frac{c}{2}(\frac{1}{T_f^2}-\frac{1}{T_i^2})\\
+&= (16.86\frac{J}{K})\ln(\frac{500}{298})+(4.77\frac{mJ}{K^2})(202K)\\
+&-\frac{0.854MJK}{2}(\frac{1}{(500K)^2}-\frac{1}{(298K)^2})\\
+&\approx 6.58\frac{J}{K}
+}
+The entropy of graphite at $298K$ is $5.74\frac{J}{K}$, so the entropy at $500K$ is
+\eq{
+6.58\frac{J}{K}+5.74\frac{J}{K}&=12.32\frac{J}{K}
+}
+\section*{3.34}
+\subsection*{a}
+The multiplicity and entropy are
+\eq{
+\Omega(N,N_r) &= \frac{N!}{N_r!(N-N_r)!}\\
+S(N,N_r) &= k_B \ln(\frac{N!}{N_r!(N-N_r)!})
+}
+\subsection*{b}
+If all links point left then $L=Nl$. If we swap a link from left to right we loose two length units, so
+\eq{
+L &= Nl-N_r2l
+}
+\subsection*{c}
+The thermodynamic identity is
+\eq{
+\delta U &= T \delta S - P \delta V\\
+&= T\delta S - F \delta L
+}
+This makes sense, if we take $N$ to be fixed then this expression follows from the thermodynamic identity written in terms of generalized forces.
+\subsection*{d}
+\eq{
+F &= T ppL0S \\
+&= Tk_B ppL0N_r ppN_r0 \ln(\frac{N!}{N_r!(N-N_r)!})\\
+}
+Applying the Sterling approximation, dropping sub-leading terms, and letting $\partial_L N_r = -\frac{1}{2l}$
+\eq{
+F &\approx -\frac{Tk_B}{2l}\ln(\frac{N-N_r}{N_r})\\
+&\approx -\frac{Tk_B}{2l}\ln(1+2(\frac{2lN}{lN-L}-1))
+}
+In the limit $lN \gg L$ we can Taylor expand $\ln$
+\eq{
+F &\approx -\frac{Tk_B}{l}(\frac{L}{lN-L})\\
+&\approx -\frac{Tk_B}{l}\frac{L}{lN}
+}
+\subsection*{f}
+As the temperature increases, there is an increasing force to the left. We defined our chain to be expanding to the left in part b, so as temperature increases we would expect the rubber band to increase in length\footnote{It would've been convenient to have chosen the opposite direction in part b}.
+\subsection*{g}
+As we stretch the rubber band we decrease the entropy calculated in part $a$, the entropy is transferred to the vibrational entropy of the molecules increasing their average kinetic energy, causing the rubber band to heat up.

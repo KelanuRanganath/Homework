@@ -1,0 +1,318 @@
+\section*{Problem 3.1}
+\subsection*{a}
+Let $X$ denote the set of functions $f:\mathbb{R}^n\rightarrow\mathbb{C}$ such that
+\begin{equation}
+    \forall f \in X: ||f|| \equiv\int_{-\infty}^\infty dx^n f^\ast f = \int_{-\infty}^\infty dx^n|f|^2 < \infty
+\end{equation}
+Clearly, we inherit vector addition associativity, vector addition commutativity, and distributivity from the field $\mathbb{C}$ (where vector addition is pointwise addition in $\mathbb{C}$). To show the rest of the definitions, pick some $f,g \in X$ and $\phi \in \mathbb{C}$, then the following are equivalent
+\begin{itemize}
+    \item $X$ forms a vector space over $\mathbb{C}$
+    \item $\phi f+g\in X$
+    \item $||\phi f + g|| <\infty$
+\end{itemize}
+\begin{equation}
+\begin{split}
+    ||\phi f+g||
+    &= \int_{-\infty}^\infty dx^n (\phi f+g)^\ast(\phi f + g)\\
+    &= \int_{-\infty}^\infty dx^n (f^\ast\phi^\ast +g^\ast)(\phi f + g)\\
+    &= \int_{-\infty}^\infty dx^n [\phi^\ast f^\ast(\phi f + g)+g^\ast(\phi f + g)]\\
+    &= |\phi|^2||f||+||g||+\phi^\ast\int_{-\infty}^\infty dx^n f^\ast g +\left( \phi^\ast\int_{-\infty}^\infty dx^n f^\ast g \right)^\ast\\
+    &= |\phi|^2||f||+||g||+2\Re\left[ \int_{-\infty}^\infty dx^n (\phi f)^\ast g\right] \\
+\end{split}
+\end{equation}
+From the Schwartz Inequality
+\begin{equation}
+    \begin{split}
+        \Re\left[ \int_{-\infty}^\infty dx^n (\phi f)^\ast g\right]
+        &\leq |\int_{-\infty}^\infty dx^n (\phi f)^\ast g|^2 \leq \int_{-\infty}^\infty dx^n (\phi f)^\ast (\phi f)\int_{-\infty}^\infty dx^n g^\ast g\\
+        &\leq |\phi|^2||f||||g||
+    \end{split}
+\end{equation}
+Let $||f||=p$ and $||g||=q$, where $p,q \in \mathbb{R}$, then
+\begin{equation}
+    \begin{split}
+        ||\phi f+g||
+        &= |\phi|^2p+q++2\Re\left[ \int_{-\infty}^\infty dx^n (\phi f)^\ast g\right] \\
+        &\leq |\phi|^2p+q+2|\phi|^2pq\\
+        &<\infty
+    \end{split}
+\end{equation}
+The set of normalized wave functions can not be a vector space because it lacks an additive identity.
+\subsection*{b}
+Let $V(\mathbb{C})$ be a vector space, $f,g \in V$ be arbitrary vectors, and $a,b\in\mathbb{C}$ be arbitrary scalars. Then $\braket{f,g}:V\times V \rightarrow\mathbb{C}$ is an inner product on the vector space $V$ iff
+
+\begin{itemize}
+    \item $\braket{f,g} = \braket{g,f}^\ast$
+    \item $\braket{f,ag+bh} = a\braket{f,g}+b\braket{f,h}$\footnote{QM defines inner products as being linear in the second term, although really, it should be linear in the first term.}
+    \item $\braket{f,f} \geq 0$ and $f=0 \Leftrightarrow \braket{f,f}=0$
+\end{itemize}
+We will show each of these properties for $\braket{f|g} \equiv \braket{g,f}$
+\begin{equation}
+    \begin{split}
+        \braket{f|g}^\ast&=(\int_{-\infty}^\infty dx f^\ast g)^\ast\\
+        &=\int_{-\infty}^\infty dx (f^\ast g)^\ast\\
+        &=\int_{-\infty}^\infty dx g^\ast f\\
+        &= \braket{g|f}
+    \end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+    \braket{f|ag+bh} &= \int_{-\infty}^\infty dxf^\ast(ag+bh)\\
+    &= \int_{-\infty}^\infty dx [af^\ast g+bf^\ast h]\\
+    &= a\int_{-\infty}^\infty dx f^\ast g + b\int_{-\infty}^\infty dx f^\ast h\\
+    &= a\braket{f|g}+b\braket{f|h}
+\end{split}
+\end{equation}
+We know that $\forall x \in \mathbb{R}:|f(x)|^2 \geq 0$ so
+\begin{equation}
+    \begin{split}
+        \braket{f|f} &= \int_{-\infty}^{\infty}dxf^\ast f\\
+        &=\int_{-\infty}^\infty dx |f|^2\\
+        &\geq 0
+    \end{split}   
+\end{equation}
+The last condition is non-trivial. Let $f=0$ and $f'=\begin{cases}
+    0 & x\neq0\\
+    1
+\end{cases}$ then $f'$ is clearly in $X$ and
+\begin{equation}
+    \begin{split}
+        \braket{f|f} &= \int_{-\infty}^\infty dxf^\ast f = 0\\
+        \braket{f'|f'}&= \int_{-\infty}^\infty dxf'^\ast f' = 0\\
+    \end{split}
+\end{equation}
+However $f\neq f'$. So instead we define our inner product on the quotient space
+$$X'\equiv X/\ker(||\cdot||)$$
+The forward implication is already done, take $f=[0] = 0$ and refer to (8). Suppose then that $\braket{f|f}=0$
+\begin{equation}
+    \begin{split}
+        \braket{f|f}
+        &= \int_{-\infty}^\infty f^\ast f dx\\
+        &= \int_{-\infty}^\infty |f|^2 dx\\
+        &= 0 = ||f||
+    \end{split}
+\end{equation}
+But since this is now unique we can say that $f = [0] = 0$.
+
+\section*{Problem 3.3}
+Let $h = f+ig$, then
+\begin{equation}
+    \begin{split}
+        \braket{f+ig|\hat{Q}(f+ig)}
+        &=\braket{f+ig|\hat{Q}f}+i\braket{f+ig|\hat{Q}g}\\
+        &=(\braket{\hat{Q} f|f}+i\braket{\hat{Q}f|g})^\ast+i(\braket{\hat{Q} g|f}+i\braket{\hat{Q}g|g})^\ast\\
+        &= \braket{f|\hat{Q}f} -i \braket{g|\hat{Q}f} +i \braket{f|\hat{Q}g} + \braket{g|\hat{Q}g}\\
+        &= \braket{\Q}_f -i \braket{g|\hat{Q}f} +i \braket{f|\hat{Q}g} + \braket{\Q}_g\\
+        \braket{\Q(f+ig)|f+ig}&= \braket{\Q}_f -i \braket{\Q g|f} +i \braket{\Q f|g} + \braket{\Q}_g\\
+        \implies - \braket{\Q g|f} + \braket{\Q f|g} &= - \braket{ g|\Q f} + \braket{ f|\Q g}
+    \end{split}
+\end{equation}
+If we let $h=f+g$, then
+\begin{equation}
+    \begin{split}
+        \braket{f+g|\hat{Q}(f+g)}
+        &=\braket{f+g|\hat{Q}f}+\braket{f+g|\hat{Q}g}\\
+        &=(\braket{\hat{Q} f|f}+\braket{\hat{Q}f|g})^\ast+(\braket{\hat{Q} g|f}+\braket{\hat{Q}g|g})^\ast\\
+        &= \braket{f|\hat{Q}f} + \braket{g|\hat{Q}f} + \braket{f|\hat{Q}g} + \braket{g|\hat{Q}g}\\
+        &= \braket{\Q}_f + \braket{g|\hat{Q}f} + \braket{f|\hat{Q}g} + \braket{\Q}_g\\
+        \braket{\Q(f+g)|f+g}&= \braket{\Q}_f + \braket{\Q g|f} + \braket{\Q f|g} + \braket{\Q}_g\\
+        \implies  \braket{\Q g|f} + \braket{\Q f|g} &=  \braket{ g|\Q f} + \braket{ f|\Q g}
+    \end{split}
+\end{equation}
+Adding the final result of equation of (10) and (11) together we get
+\eq{
+\bk{\Q f|g} = \bk{f|\Q g}
+}
+\section*{Problem 3.5}
+\subsection*{a}
+\begin{equation}
+\begin{split}
+    \braket{\psi | x\phi} &= \int_{-\infty}^\infty dx\psi^\ast x\phi\\
+    &=\int_{-\infty}^\infty dx (x^\ast\psi)^\ast \phi\\
+    &=\int_{-\infty}^\infty dx (x\psi)^\ast \phi\\
+    &=\braket{x\psi|\phi}
+\end{split}
+\end{equation}
+\begin{equation}
+    \begin{split}
+    \braket{\psi | i\phi} &= \int_{-\infty}^\infty dx\psi^\ast i\phi\\
+    &=\int_{-\infty}^\infty dx (i^\ast\psi)^\ast \phi\\
+    &=\int_{-\infty}^\infty dx (-i\psi)^\ast \phi\\
+    &=\braket{-i\psi|\phi}
+    \end{split}
+\end{equation}
+\begin{equation}
+    \begin{split}
+        \braket{\psi|\frac{d}{dx}\phi} &= \int_{-\infty}^\infty\psi^\ast\frac{d\phi}{dx}dx\\
+        &=\psi^\ast\phi|_{-\infty}^\infty-\int_{-\infty}^\infty\frac{d\psi^\ast}{dx}\phi dx\\
+        &=\braket{-\frac{d}{dx}\psi|\phi}
+    \end{split}
+\end{equation}
+
+\subsection*{b}
+\begin{equation}
+    \begin{split}
+        \braket{\psi|(\hat{Q}\hat{R})^\dagger|\phi} &= \braket{(\hat{Q}\hat{R})\psi|\phi}\\
+        &=\braket{\hat{Q}(\hat{R}\psi)|\phi}\\
+        &=\braket{\hat{R}\psi|\hat{Q}^\dagger\phi}\\
+        &=\braket{\psi|\hat{R}^\dagger(\hat{Q}^\dagger\phi)}\\
+        &=\braket{\psi|\hat{R}^\dagger\hat{Q}^\dagger|\phi}
+    \end{split}
+\end{equation}
+
+\subsection*{c}
+\begin{equation}
+    \begin{split}
+        \braket{\psi|a_+\phi} &= \braket{\psi|\frac{1}{\sqrt{2\hbar m \omega}}(-i\hat{p}+m\omega x)\phi}\\
+        &= \frac{1}{\sqrt{2\hbar m \omega}} \left( \int_{-\infty}^\infty-\hbar\psi^\ast\frac{d\phi}{dx} dx + \int_{-\infty}^\infty m\omega \psi^\ast x\phi dx\right)\\
+        &= \frac{1}{\sqrt{2\hbar m \omega}} \left( \hbar\int_{-\infty}^\infty\frac{d\psi^\ast}{dx}\phi dx + m\omega\int_{-\infty}^\infty (x\psi)^\ast \phi dx\right)\\
+        &= \frac{1}{\sqrt{2\hbar m \omega}} \int_{-\infty}^\infty\left( \hbar\frac{d}{dx}+m\omega x\right)\psi^\ast\phi dx\\
+        &= \frac{1}{\sqrt{2\hbar m \omega}} \int_{-\infty}^\infty\left( i\hat{p}+m\omega x\right)\psi^\ast\phi dx\\
+        &=\braket{ \frac{1}{\sqrt{2\hbar m \omega}} \left( i\hat{p}+m\omega x\right)\psi|\phi}\\
+        &=\braket{a_-\psi|\phi}
+    \end{split}
+\end{equation}
+\section*{Problem 3.11}
+The position ground state for the harmonic oscillator is
+\begin{equation}
+    \psi_0(x)=\left( \frac{m\omega}{\pi \hbar}\right)^\frac{1}{4}e^{-\frac{m\w}{2\h}x^2}
+\end{equation}
+In momentum space
+\begin{equation}
+    \begin{split}
+        \phi_0(p) = \frac{1}{\sqrt{2\pi\h}}\br{\frac{m\w}{2\h}}^\frac{1}{4}\infi{x}\ex{-\frac{m\w}{2\h}x^2}\ex{-p\frac{p}{\h}x}
+    \end{split}
+\end{equation}
+Completing the square and using an integral table yields
+\begin{equation}
+    \phi_0(x) = \frac{1}{\br{\pi\h m\w}^\frac{1}{4}}\ex{-\frac{p^2}{2\h m\w}}
+\end{equation}
+The energy associated with the ground state is
+\begin{equation}
+    E_0 = \frac{1}{2}\h\w
+\end{equation}
+And the classical momentum is $\n{p_0^2|2m}=E_0$ so the expected classical ground state momentum is
+\eq{p_0=\sqrt{2m\w}}
+Therefore the probability of measuring momentum not in the range of $\pm p_0$ is
+\eq{\mathbb{P}&=\frac{1}{\sqrt{\pi\h m\w}}\br{\infi{p}\ex{-\frac{p^2}{\h m\w}}-\int_{p_0}^{p_0}dp\ex{-\frac{p^2}{\h m\w}}}\\
+&=\frac{1}{\sqrt{\pi\h m\w}}\br{\sqrt{\pi\h m\w}-\sqrt{\pi  \hbar m \w}\text{ erf}\br{\frac{\sqrt{\pi \h m \w}}{\sqrt{\pi \h m \w}}}}\\
+&=1-\textbf{erf}(1)\\
+&\approx 0.16
+}
+
+\section*{Problem 3.32}
+\subsection*{a}
+Suppose $\braket{\Q} = a+ib$
+\begin{equation}
+    \begin{split}
+        \braket{\Q}
+        &=\braket{\psi|\Q\psi} \\
+        &= \braket{-\Q\psi|\psi}\\
+        &= -\braket{\Q\psi|\psi}\\
+        &= -\braket{\psi|\Q\psi}^\ast\\
+        &= -\braket{\Q}^\ast
+    \end{split}
+\end{equation}
+Then $a+ib = -(a-ib) = -a + ib\implies a = 0$
+\subsection*{b}
+Suppose $\Q\ket{\la} = \la\ket{\la}$ and $\la = a+ib$, then
+\eq{
+\bk{\la|\Q\la} &= \la\\
+\bk{\la|\Q\la} &= \bk{-\Q\la|\la}\\
+&=-\bk{\Q\la|\la}\\
+&=-\bk{\la|\Q\la}^\ast\\
+&=-\la^\ast
+}
+It follows then that
+\eq{
+\la & = -\la^\ast\\
+a+ib &= -a+ib\\
+a &= -a
+}
+So we can deduce that $a=0$ and $\la$ must be purely imaginary.
+\subsection*{c}
+Let $\A$ and $\B$ be hermetian operators
+\eq{
+\bk{\p|[\A,\B]\phi} &= \bk{\p|[\A\B-\B\A]\phi}\\
+&=\bk{[\A\B-\B\A]\da\p|\phi}\\
+&=\bk{[(\A\B)\da-(\B\A)\da]\p|\phi}\\
+&=\bk{[\B\da\A\da-\A\da\B\da]\p|\phi}\\ 
+&=\bk{[\B\A-\A\B]\p|\phi}\\
+&=\bk{-[\A,\B]\p|\phi}
+}
+$\implies$ the commutator is anti-hermetian
+\subsection*{d}
+Let $\A$ and $\B$ be anti-hermetian operators
+\eq{
+\bk{\p|[\A,\B]\phi} &= \bk{\p|[\A\B-\B\A]\phi}\\
+&=\bk{[\A\B-\B\A]\da\p|\phi}\\
+&=\bk{[(\A\B)\da-(\B\A)\da]\p|\phi}\\
+&=\bk{[\B\da\A\da-\A\da\B\da]\p|\phi}\\ 
+&=\bk{[(-\B)(-\A)-(-\A)(-\B)]\p|\phi}\\
+&=\bk{-[\A,\B]\p|\phi}
+}
+$\implies$ the commutator is anti-hermetian
+
+\subsection*{e}
+Supposing that $Q$ is normal, we can write it's spectral decomposition as\footnote{The idea for this "proof" came from thinking about $Q$ as a normal operator on some finite dimensional $\mathcal{H}$. In the Eigen-basis, $Q$ is diagonal and we can split $Q$ into a real and imaginary diagonal matrix, $\A$ and $\B$, respectively. I was reading about how to write the spectral decomposotion of $Q$ in a more general Hilbert space in this
+\hyperlink{https://math.stackexchange.com/questions/2639219/why-denote-the-spectral-decomposition-of-a-bounded-operator-as-an-integral}{SE post}.}
+\eq{
+Q &= \int\la dE(\la)\\
+&= \int a(\la) dE(\la) + \int ib(\la)dE(\la)\\
+&\equiv \A + \B
+}
+Next we'll show that $\A$ and $\B$ are hermetian and anti-hermetian, respectively
+\eq{
+\A\da &=  \br{\int a(\la) dE(\la)}\da\\
+&=\int a(\la)\da dE(\la)\da\\
+&= \int a(\la) dE(\la)\\
+&= \A\\
+\B\da &= \br{\int ib(\la) dE(\la)}\da\\
+&=\int (ib(\la))\da dE(\la)\da\\
+&=-\int b(\la) dE(\la)\\
+&= -\B
+}
+This argument can be made rigorous using the limit definition. Taking the complex-conjugate of $Q$ yields
+\eq{
+Q\da &= \br{\A+\B}\da\\
+&=\A\da+\B\da\\
+&=\A-\B
+}
+So it follows that
+\eq{
+\A &= \n{1|2}\br{Q+Q\da}\\
+\B &= \n{1|2}\br{Q-Q\da}
+}
+
+\section*{Problem 3.33}
+\subsection*{a}
+If we measure $a_1$ then immediately after measurement our system is in state $\psi_1$.
+\subsection*{b}
+The possible results of measuring $B$ are $b_1$ or $b_2$ with probability $\br{\frac{3}{25}}^2$ and $\br{\frac{4}{5}}^2$, respectively.
+\subsection*{c}
+We can write our system as a matrix, which is simple to invert
+\begin{equation}
+    \begin{split}
+        5I_2\vec{\psi} &= \begin{pmatrix}
+            3 & 4\\
+            4 & -3
+        \end{pmatrix}\vec{\phi}\\
+        \vec{\phi}&=\frac{1}{5}\begin{pmatrix}
+            -3 & -4\\
+            -4 & 3
+        \end{pmatrix}\vec{\psi}
+    \end{split}
+\end{equation}
+So it follows that
+\begin{equation}
+    \begin{split}
+        \phi_1 &= \frac{1}{5}\br{-3\psi_1-4\psi_2}\\
+        \phi_2 &= \frac{1}{5}\br{-4\psi_1+3\psi_2}
+    \end{split}
+\end{equation}
+If we are in state $\phi_1$ after measurement then we will be in state $\\psi_1$ with probability $\br{\frac{9}{5}}^2$. If we are in state $\phi_2$ after measurement then we will be in state $\psi_1$ with probability $\br{\frac{4}{5}}^2$.
+
+From part (b), since these are independent measurements, the total probability of measuring $\psi_1$ is
+\begin{equation}
+    \br{\frac{9}{25}}^2    \br{\frac{9}{25}}^2+    \br{\frac{4}{16}}^2    \br{\frac{4}{16}}^2=\frac{337}{625}
+\end{equation}

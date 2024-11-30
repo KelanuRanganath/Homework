@@ -1,0 +1,349 @@
+\section{Thornton and Marion Problem 11.30}
+Refer to the discussion of the symmetric top in Section 11.11. Investigate the equation for the turning points of the rotational motion by setting $\dot{\theta} = 0$ in Equation 11.161. Show that the resulting equation is a cubic in $\cos \theta$ and has two real roots and one imaginary root for $\theta$. What is the significance of imaginary roots?
+
+\subsection{Part 1}
+With $\dot{\theta}=0$
+\begin{equation}
+    E' = \frac{(p_\phi -p_\psi \cos \theta)^2}{2I_1 \sin^2 \theta} + Mgh \cos \theta
+\end{equation}
+Rearranging for $\cos \theta$
+\begin{equation}
+    \cos^3 \theta (2I_1 M g h) + \cos^2 \theta (p_\psi^2 - 2I_1 E') + \cos \theta (2 p_\phi p_\psi - 2I_1Mgh) - p_\phi+ 2I_1E' =0
+\end{equation}
+
+\subsection{Part 2}
+The discriminant is
+\begin{equation}
+\begin{split}
+      \Delta c & = 18(2I_1 M g h)(p_\psi^2 - 2I_1 E')(2 p_\phi p_\psi - 2I_1Mgh)(-p_\phi+ 2I_1E')\\
+      & - 4(p_\psi^2 - 2I_1 E')^3(-p_\phi+ 2I_1E')\\
+      & + (p_\psi^2 - 2I_1 E')^2(2 p_\phi p_\psi - 2I_1Mgh)^2\\
+      & - 4(2I_1 M g h)(2 p_\phi p_\psi - 2I_1Mgh)^3\\
+      & - 27(2I_1 M g h)^2(-p_\phi+ 2I_1E')^2\\
+\end{split}
+\end{equation}
+The output can be evaluated with Sage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{Plots/cubic.png}
+\end{figure}
+
+So it follows that the cubic has one real root and two complex roots. If there is only one real for which $\cos \theta$ is real, then that means there is one real angle $\theta '$ such that $v(\theta ') = 0$.
+
+\pagebreak
+\section{Thornton and Marion Problem 11.34}
+Consider a symmetrical rigid body rotating freely about it's center of mass. A frictional torque $(N_f = -b\omega)$ acts to slow down the rotation. Find the component of the angular velocity along the symmetry axis as a function of time.
+
+\subsection{Part 1}
+The Euler equation of motion is
+\begin{equation}
+    (I_i-I_j)\omega_i\omega_j-\sum_k(I_k\dot{\omega}_k-N_k)\epsilon_{ijk} = 0
+\end{equation}
+Suppose the object's axis of rotation is $z$, then $\omega_x = \omega_y = 0$, and
+\begin{equation}
+    I_z\dot{\omega}_z = N_z = -b\omega
+\end{equation}
+This is a simple ODE, whose solution is
+\begin{equation}
+    \omega(t) = \omega(0)e^{-\frac{b}{I_z}t}
+\end{equation}
+It cannot be applied to the last part of the yo-yo problem because in the yo-yo problem the normal force from friction is not applied to the axis of rotation.
+
+\pagebreak
+\section{Thornton and Marion Problem 12.1}
+Reconsider the problem of two coupled oscillators discussed in Section 12.2 in the event that the three springs all have different force constants. Find the two characteristic frequencies, and compare the magnitudes with the natural frequencies of the two oscillators in the absence of coupling.
+
+\subsection{Part 1}
+We start by writing out the coupled differential equations
+\begin{equation}
+    \begin{split}
+        k_1(l_1-x_1) + k_{12}(x_2-x_1-l_{12})& = M\ddot{x}_1\\
+        k_2(L-x_2-l_2)-k_{12}(x_2-x_1-l_{12})&=M\ddot{x}_2
+    \end{split}
+\end{equation}
+Where $l_i$ are the equilibrium lengths and $L = l_1 + l_2 + l_3$. The differential equations can be written in matrix form as
+\begin{equation}
+    -A\ddot{x}+Bx+y=0
+\end{equation}
+Where
+\begin{equation}
+    \begin{split}
+        A &= M \begin{bmatrix}
+            1 & 0\\
+            0 & 1
+        \end{bmatrix}\\
+        B & = \begin{bmatrix}
+            -k_1 -k_{12} & k_{12}\\
+            k_{12} & -k_2 -k_{12}
+        \end{bmatrix}\\
+        y &= \begin{bmatrix}
+            k_1 l_1 - k_{12}l_{12}\\
+            k_2l_1+k_2+k_{12}l_{12}
+        \end{bmatrix}
+    \end{split}
+\end{equation}
+By letting
+\begin{equation}
+    z = Bx+y
+\end{equation}
+We can simplify the problem and find the corresponding eigenvalues of
+\begin{equation}
+\begin{split}
+    \ddot{z} &= BA^{-1}z\\
+    \ddot{z}_p &= BA^{-1}z_p = \lambda_p z_p\\
+    \implies \ddot{z}_p^i &= \lambda_p z_p^i
+    \end{split}
+\end{equation}
+So it's clear, by Laplace transforming and assuming $\dot{z}_p(0) = 0$, that we are looking for solutions of the form
+\begin{equation}
+    z_p = z_p(0)cos(\sqrt{\lambda_p}t)
+\end{equation}
+Using Sage \ref{fig:normalmode-freq} we find that the eigenvalues are
+\begin{equation}
+    \lambda_\pm = -\frac{1}{2M}\left ( k_1 + 2k_{12} + k_2 \pm \sqrt{(k_1-k_2)^2+4k_{12}^2} \right )
+\end{equation}
+So the frequencies of oscillation are then
+\begin{equation}
+    \omega_\pm = \sqrt{\lambda_\pm}
+\end{equation}
+In the absence of coupling the eigenvalues become
+\begin{equation}
+    \lambda_\pm = -\frac{1}{2M}\left ( k_1 + k_2 \pm (k_1 - k_2) \right )
+\end{equation}
+Which is the same as what was derived in Section 12.2.
+\begin{figure}
+    \begin{python}
+    A = matrix([[m, 0],[0,m]])
+    B = matrix([[-k1-k12,k12],[k12,-k2-k12]])
+    
+    #Compute the eigenvalues/normal mode angular frequencies
+    w = (B*A.inverse()).eigenvalues()
+    #show(w)
+    
+    #Substitution
+    w = map(lambda x: x.subs(k12 = k1/50,k2 = dk + k1,m=1),w)
+    
+    #Generate plots
+    w = list(map(
+        lambda x: plot3d(sqrt(x[1]),
+                         (k1,0,20),
+                         (dk,-10,10),
+                         color = hue(x[0]/2+0.5),
+                         alpha=0.9,
+                         axes=True,
+                         axes_labels=['k1','dk','w']),
+        enumerate(w)))
+    
+    #Display plots
+    show(sum(w))
+    \end{python}
+    \caption{Sage code for computing and plotting normal mode frequencies}
+    \label{fig:normalmode-freq}
+\end{figure}
+Plotting $\omega_\pm(k_1,\Delta k)$, for $-10 \leq k, \Delta k \leq 10$ \ref{fig:eigenvals}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\linewidth]{Plots/screenshot.png}
+    \caption{Plot of $\omega_\pm(k_1,\Delta k)$, $\omega_+$ is in purple, and $\omega_-$ is in green}
+    \label{fig:eigenvals}
+\end{figure}
+The eigenvectors are
+\begin{equation}
+    z_\pm = \begin{bmatrix}
+        1\\
+        \frac{-\Delta k\pm \sqrt{\Delta k^2+4k_{12}}}{2k_{12}}
+    \end{bmatrix}
+\end{equation}
+When $\Delta k < 0$
+
+\pagebreak
+\section{Thornton and Marion Problem 12.10}
+Consider two identical, coupled oscillators. Let each of the oscillators be damped, and let each have the same damping parameter $\beta$. A force $F_0\cos \omega t$ is applied to $m_i$. Write down the pair of coupled differential equations that describe the motion. Obtain the solution by expressing the differential equation in terms of the normal coordinates given by Equation 12.11 and by comparing these equations with Equation 3.53. Show that the normal coordinates $\eta_1$ and $\eta_2$ exhibit resonance peaks at the characteristic frequencies $\omega_1$ and $\omega_2$, respectively.
+
+\subsection{Part 1}
+Modifying the differential equations in (21.1) to include the damping and driving force
+\begin{equation}
+    \begin{split}
+        m\ddot{x}_1 + (k+k_{12})x_1-k_{12}x_2+2m\beta\dot{x}_1-F_0 \cos (\omega t) &= 0\\
+        m\ddot{x}_2 + (k+k_{12})x_2-k_{12}x_1+2m\beta\dot{x}_2 &= 0
+    \end{split}
+\end{equation}
+In terms of the provided normal coordinates
+\begin{equation}
+    \begin{split}
+        m\frac{1}{2}(\ddot{\eta}_2+\ddot{\eta}_1) + (k+k_{12})\frac{1}{2}(\eta_2+\eta_1)-k_{12}\frac{1}{2}(\eta_2-\eta_1)+m\beta(\dot{\eta}_2+\dot{\eta}_1)-F_0 \cos (\omega t) &= 0\\
+        m\frac{1}{2}(\ddot{\eta}_2-\ddot{\eta}_1) + (k+k_{12})\frac{1}{2}(\eta_2-\eta_1)-k_{12}\frac{1}{2}(\eta_2+\eta_1)+m\beta(\dot{\eta}_2-\dot{\eta}_1) &= 0
+    \end{split}
+\end{equation}
+The equations can be substituted and decoupled into
+\begin{equation}
+    \begin{split}
+        m\ddot{\eta}_2 + k\eta_2 +2m\beta \dot{\eta}_2 -F_0 \cos(\omega t) &= 0\\
+        m\ddot{\eta}_1 + (k + 2k_{12})\eta_1 + 2m\beta \dot{\eta}_1 - F_0 \cos(\omega t)&= 0
+    \end{split}
+\end{equation}
+The above equations can be manipulated into the form of equation (3.53)
+\begin{equation}
+    \begin{split}
+        \ddot{\eta}_2  +2\beta \dot{\eta}_2+ \frac{k}{m}\eta_2 &= \frac{F_0}{m} \cos(\omega t)\\
+        \ddot{\eta}_1 + 2\beta \dot{\eta}_1+ \frac{(k + 2k_{12})}{m}\eta_1  &= \frac{F_0}{m} \cos(\omega t)
+    \end{split}
+\end{equation}
+The solution then for $\eta_i$ is the same as the solution in equations (3.54), (3.60), and (3.61)
+\begin{equation}
+    \begin{split}
+            \eta_i &= \eta_{i,c} + \eta_{i,p}\\
+                &= e^{-\beta t}\left [ A_1 \exp(\sqrt{\beta^2-\omega_i^2}t)+A_2\exp(-\sqrt{\beta^2-\omega_i^2}t)\right ]\\
+                &+\frac{F_0}{m\sqrt{(\omega_i^2-\omega^2)^2+4\omega^2 \beta^2}}\cos(\omega t -\delta)
+    \end{split}
+\end{equation}
+Where
+\begin{equation}
+    \begin{split}
+        \delta &= \arctan \left ( \frac{2\omega \beta}{\omega_0^2-\omega^2}\right )\\
+        \omega_1 &= \sqrt{\frac{k+2k_{12}}{m}}\\ 
+        \omega_2 &= \sqrt{\frac{k}{m}}
+    \end{split}
+\end{equation}
+
+\subsection{Part 2}
+Differentiating the amplitude with respect to $\omega$
+\begin{equation}
+\begin{split}
+    0 & =\partial_\omega \left ( \frac{F_0}{m\sqrt{(\omega_i^2-\omega^2)^2+4\omega^2 \beta^2}} \right )\\
+    0&= 2\omega(\omega_i^2 - \omega^2)^2+4\omega^2 \beta^2)^\frac{-3}{2}((\omega_i^2-\omega^2-2\beta^2))\\
+    \implies \omega &= \sqrt{\omega_i^2-2\beta^2}
+\end{split}
+\end{equation}
+This agrees with the text.
+\subsection{Part 3}
+The resonant amplitude is
+\begin{equation}
+    \frac{F_0}{m}\frac{1}{2\beta}\frac{1}{\sqrt{3\beta^2-\omega_i^2}}
+\end{equation}
+The $\SI{-3}{\decibel}$ occurs when
+\begin{equation}
+    \frac{F_0}{m\sqrt{(\omega_i^2-\omega^2)^2+4\omega^2 \beta^2}} = \frac{1}{\sqrt{2}}\frac{F_0}{m}\frac{1}{2\beta}\frac{1}{\sqrt{3\beta^2-\omega_i^2}}
+\end{equation}
+Which is
+\begin{equation}
+    \frac{\Delta \omega}{2} = \sqrt{\omega_R^2 +\sqrt{2(\omega_R^4+6\beta^2\omega_R^2-2\beta^4)}}
+\end{equation}
+The difference in normal mode frequencies is
+\begin{equation}
+    \Delta \omega_R = \sqrt{\omega_1^2-2\beta^2}-\sqrt{\omega_2^2-2\beta^2}
+\end{equation}
+We're interested in the case where
+\begin{equation}
+    \frac{\Delta \omega_1}{2} \geq \Delta \omega_R
+\end{equation}
+So, solving for $\beta$, yields
+\begin{equation}
+    
+\end{equation}
+
+
+
+\pagebreak
+\section{Thornton and Marion Problem 12.11}
+Use the developments in Section 12.2 to find the characteristic frequencies in terms of the capacitance $C$, inductance $L$, and mutual inductance $M$.
+
+\subsection{Part 1}
+We start by defining
+\begin{equation}
+    \begin{split}
+        A &= \begin{bmatrix}
+            L & M \\
+            M & L
+        \end{bmatrix}\\
+        B & = \frac{1}{C}\begin{bmatrix}
+            1 & 0\\
+            0 & 1
+        \end{bmatrix}\\
+        I & = \begin{bmatrix}
+            I_1\\
+            I_2
+        \end{bmatrix}
+    \end{split}
+\end{equation}
+Then we get
+\begin{equation}
+    \ddot{I} = -A^{-1}BI
+\end{equation}
+Plugging this into Sage
+\begin{figure}
+    \centering
+    \begin{python}
+B = matrix([[1/c, 0],[0,1/c]])
+A = matrix([[L, M],[M, L]])
+
+(-A.inverse()*B).eigenvalues()
+\end{python}
+    \caption{Sage code for computing coupled LC eigenvalues}
+    \label{fig:LCeigen}
+\end{figure}
+The eigenvalues of $-A^{-1}B$ (via Sage \ref{fig:LCeigen}) are
+\begin{equation}
+    \lambda_\pm = \frac{1}{c(L\pm M)}
+\end{equation}
+And the corresponding frequencies are
+\begin{equation}
+    \omega_\pm = \sqrt{\frac{1}{c(L\pm M)}}
+\end{equation}
+
+\pagebreak
+\section{LC Circuit}
+Similar to the previous problem we can write down the differential equation
+\begin{equation}
+    \begin{split}
+        \ddot{I}_1+\frac{1}{LC}(1+\frac{C}{C_c})I_1+\frac{1}{LC_c}I_2 &=0\\
+        \ddot{I}_2+\frac{1}{LC}(1+\frac{C}{C_c})I_2+\frac{1}{LC_c}I_1 &=0\\
+    \end{split}
+\end{equation}
+And the corresponding eigenvalue equation
+\begin{equation}
+    \ddot{I} = -\begin{bmatrix}
+        a & b \\
+        b & a 
+    \end{bmatrix}I
+\end{equation}
+Where
+\begin{equation}
+    \begin{split}
+        a & = (1+\frac{C}{C_c})\\
+        b & = \frac{1}{LC_c}
+    \end{split}
+\end{equation}
+The eigen-values and corresponding normal-modes can be found easily
+\begin{equation}
+    \begin{split}
+        \lambda_\pm & = a \pm b\\
+        \omega_\pm & = \sqrt{\frac{1}{LC_c}(1+\frac{C}{C_c})+\frac{1}{LC_c}}
+    \end{split}
+\end{equation}
+By inspection the normal coordinates are
+\begin{equation}
+    \begin{split}
+        \eta_1 &= \frac{I_1 + I_2}{2}\\
+        \eta_2 &= \frac{I_1-I_2}{2}
+    \end{split}
+\end{equation}
+Substituting into the original differential equations, adding and subtracting, the decoupled version is
+\begin{equation}
+    \begin{split}
+        \ddot{\eta}_1+(a+b)\eta_1 &=0\\
+        \ddot{\eta}_2+(a-b)\eta_1 &= 0
+    \end{split}
+\end{equation}
+Supposing that $C_c << C$ we get that
+\begin{equation}
+    \begin{split}
+        \ddot{\eta}_1+\frac{2}{LC_c}\eta_1 &\approx 0\\
+        \ddot{\eta}_2+\frac{1}{LC}\eta_2&=0
+    \end{split}
+\end{equation}
+We get that the difference between the modes is
+\begin{equation}
+    \frac{1}{L(C-C_c)}
+\end{equation}
+Which is similar to the previous problem

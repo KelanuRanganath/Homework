@@ -1,0 +1,61 @@
+\section{Thornton And Marion Problem 7.3}
+
+% Problem drawing
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.5]
+% Draw axis
+\coordinate (origin) at (0,0);
+\draw[dashed] (origin) -- node (axis) {} ($(origin)+(0,-2)$);
+
+% Draw lower half of the circle
+\draw (-2,0) arc (-180:0:2cm);
+
+% Draw dashed line marking the radius
+\draw[dashed] (origin) -- node[above] {R} (-20:2);
+
+% Draw circle
+\def\cradius{0.7}
+\coordinate (a) at (60:\cradius-2);
+\draw (a) circle (\cradius);
+\draw[->] (origin) -- node (cpos) {} (a);
+
+% Label normal
+\draw[->] (a) -- node (cref) {} ($(a)+(-\cradius,0)$);
+
+% label radius
+\draw[dashed] (a) -- node[below] {$\rho$} node (cnorm) {} ($(a)+(-120:\cradius)$);
+
+% Circle rotation angle
+\pic [draw, ->, "$\theta$", angle eccentricity=1.5] {angle = cref--a--cnorm};
+
+% Circle position angle
+\pic [draw, ->, "$\psi$", angle eccentricity=1.5] {angle = cpos--origin--axis};
+
+\end{tikzpicture}
+
+\end{figure}
+
+Rolling without slipping sets the constraint
+
+\begin{equation}
+    \theta \rho = \psi R
+\end{equation}
+
+The gravitational potential energy is
+
+\begin{equation}
+    U = mgR\left [1 - \sin(\psi)\right]
+\end{equation}
+
+The kinetic energy is
+
+\section{Thornton and Marion Problem 7.9}
+
+\section{Thornton and Marion Problem 7.26}
+
+\section{}
+
+\section{Thornton and Marion Problem 7.30}
+
+\section{}

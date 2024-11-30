@@ -1,0 +1,78 @@
+\section*{Problem 1}
+\subsection*{Part a}
+The z rotation gate is
+\eq{
+RZ(\theta) &= \begin{pmatrix}
+    e^{-i\frac{\theta}{2}} & 0\\
+    0 & e^{i\frac{\theta}{2}}\\
+    \end{pmatrix}\\
+    &= e^{-i\frac{\theta}{2}}
+    \begin{pmatrix}
+    1 & 0\\
+    0 & e^{i\theta}
+    \end{pmatrix}\\
+\implies RZ(\frac{\pi}{4}) &= e^{-i\frac{\pi}{8}}
+\begin{pmatrix}
+1 & 0\\
+0 & e^{i\frac{\pi}{4}}
+\end{pmatrix}\\
+&= e^{-i\frac{\pi}{8}} \hat{T}
+}
+\subsection*{Part b}
+The gate sequence matrix is
+\eq{
+\hat{H}\hat{T}\hat{H} &= 1/2
+\begin{pmatrix}
+    1 + e^{i\frac{\pi}{4}} & 1 - e^{i\frac{\pi}{4}}\\
+    1 - e^{i\frac{\pi}{4}} & 1 + e^{i\frac{\pi}{4}}
+\end{pmatrix}\\
+&= 1/2 (\sigma_0 (1 + e^{i\frac{\pi}{4}})+\sigma_x(1 - e^{i\frac{\pi}{4}}))\\
+&= 1/2 e^{i\frac{\pi}{8}} (\sigma_0 (e^{-i\frac{\pi}{8}} + e^{i\frac{\pi}{8}})-\sigma_x(e^{i\frac{\pi}{8}} - e^{-i\frac{\pi}{8}}))\\
+&= e^{i\frac{\pi}{8}} (\sigma_0 \cos(\frac{\pi}{8})-i\sigma_x\sin(\frac{\pi}{8}))\\
+&= e^{i\frac{\pi}{8}} RX(\frac{\pi}{4})
+}
+\subsection*{Part c}
+First we'll rewrite $\hat{H}\hat{T}\hat{H}$ and $\hat{T}$
+\eq{
+\hat{T} &= e^{i\frac{\pi}{8}}RZ(\frac{\pi}{4})\\
+&= e^{i\frac{\pi}{8}} e^{-i\frac{\pi}{8}\sigma_z}\\
+\hat{H}\hat{T}\hat{H}&= e^{i\frac{\pi}{8}} RX(\frac{\pi}{4})\\
+&=e^{i\frac{\pi}{8}} e^{-i\frac{\pi}{8}\sigma_x}\\
+\hat{T}\hat{H}\hat{T}\hat{H} &= e^{i\frac{\pi}{4}}e^{-i\frac{\pi}{8}\sigma_z}e^{-i\frac{\pi}{8}\sigma_x}\\
+&= e^{i\frac{\pi}{4}}e^Z
+}
+\subsection*{Part d}
+
+\pagebreak
+\section*{Problem 2}
+
+\pagebreak
+\section*{Problem 3}
+We can construct a two bit half adder using two controlled not gates and a Toffoli gate.\\
+\begin{figure}[H]
+\centering
+\begin{quantikz}
+\lstick{$\ket{\psi_1}$} & \ctrl{2} &  & \ctrl{3} &\\
+\lstick{$\ket{\psi_2}$} & \control{} & \ctrl{2}  & &\\
+\lstick{$\ket{0}$} & \targ{} & & &\\
+\lstick{$\ket{0}$} & & \targ{} & \targ{}&\\
+\end{quantikz}
+\caption{Quantum two-bit half adder.}
+\end{figure}
+This circuit operates by first flipping the carry digit if both inputs are up, if both inputs are up then the add digit is flipped twice -effectively leaving it at $0$. If only one qubit is up then nothing happens to the carry digit and the add digit is flipped once.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccccc}
+        \ket{\psi_1 \psi_2} & \ket{00} & \ket{01} & \ket{10} & \ket{11}\\
+        \ket{\phi_1 \phi_2} & \ket{00} & \ket{01} & \ket{01} & \ket{10}\\
+    \end{tabular}
+    \caption{Quantum two-bit half adder truth table.}
+    \label{tab:my_label}
+\end{table}
+\pagebreak
+\section*{Problem 4}
+
+\pagebreak
+\section*{Problem 5}
+Does Steve Lacy's Bad Habit's song contain samples from the video game Minecraft?

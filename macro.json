@@ -1,0 +1,8 @@
+{
+"*":"^\\ast",
+"@":"\\bigg\\rvert",
+"infinity":"\\infty",
+"\\sqrt ":"sqrt",
+"sqrt":"\\sqrt",
+"integrate":"\\int"
+}

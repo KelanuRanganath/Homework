@@ -1,0 +1,155 @@
+\section*{Problem 1.22}
+\subsection*{a}
+From equation 1.9, the pressure on a surface of area $A$ from a single particle over a time interval $\Delta t$ is
+\eq{
+\delta P&=-\frac{m}{A}\frac{\overline{\Delta v_x}}{\Delta t}
+}
+So it follows that the total pressure from $N$ atoms is
+\eq{
+P&=\sum_N \delta P = -\frac{m}{A}\frac{\overline{\Delta v_x}}{\Delta t}N\\
+\implies N &= - \frac{PA\Delta t}{m\overline{\Delta v_x}}
+}
+Using equation 1.11 $\Delta v_x = -2v_x$
+\eq{
+N &= \frac{PA\Delta t}{2m\overline{v_x}}
+}
+\subsection*{b}
+Since we're assuming $v_x = v_y = v_y$ the average magnitude of velocity is then
+\eq{
+\overline{v^2} &= 3\overline{v_x^2}
+}
+Taking the square root of both sides and applying equation 1.21
+\eq{
+\sqrt{\overline{v_x^2}}&=\frac{1}{\sqrt{3}}\sqrt{\frac{3kT}{m}} = \sqrt{\frac{kT}{m}}
+}
+
+\subsection*{c}
+Suppose that we let $\Delta t \rightarrow dt$, then the number of particles in our box changes by
+\eq{
+-dN &= \frac{PAdt}{2m\overline{v_x}}\\
+\frac{dN}{dt}&= -\frac{PA}{2m\overline{v_x}}
+}
+Using equation 1.14 to substitute $P = \frac{Nm\overline{v_x^2}}{V}$
+\eq{
+\frac{dN}{dt}&= -\frac{A}{2V}\overline{v_x}N
+}
+Using equation (5)
+\eq{
+    \frac{dN}{dt}&= -\frac{A}{2V}\sqrt{\frac{kT}{m}}N
+}
+
+Using separation of variables
+\eq{
+\int_{N(0)}^{N(t)}\frac{1}{N}dN &= -\frac{A}{2V}\sqrt{\frac{kT}{m}}\int_0^tdt\\
+\ln(N(t)) - \ln(N(0)) &= -\frac{A}{2V}\sqrt{\frac{kT}{m}}t\\
+N(t) &= N(0)\exp\br{-\frac{A}{2V}\sqrt{\frac{kT}{m}}t}
+}
+Suppose that at time $t=\tau$ the number of particles is $N(\tau) = \frac{N(0)}{e}$, then
+\eq{
+1 &= \exp\br{1-\frac{A}{2V}\sqrt{\frac{kT}{m}}\tau}\\
+\implies \tau &= \frac{2V}{A}\sqrt{\frac{m}{kT}}\\
+\implies N(t) &= N(0)\exp\br{-\frac{t}{\tau}}
+}
+\subsection*{d}
+The area $A = 10^{-6}m^2$ and volume $V=10^{-3}m^3$ are given. $k \approx 8.314\frac{J}{Kmol}$ and suppose that $T = 300K$ (a warm day). The average molar mass of a molecule of air is $28.9647\cdot10^{-3}\frac{kg}{mol}$. Then suppose there are $n$ moles
+\eq{
+    \frac{kT}{m} &= \frac{(300K)(8.314\frac{J}{Kmol})n}{28.9647\cdot10^{-3}\frac{kg}{mol}n}\\
+    &\approx 86.11\cdot10^3\frac{J}{kg}\\
+    \sqrt{\frac{kT}{m}}&\approx 293.448 \frac{m}{s}\\
+    \sqrt{\frac{m}{kT}}&\approx 3.408\cdot10^{-3}\frac{s}{m}
+}
+We can now calculate the characteristic time
+\eq{
+\tau &\approx \frac{2\cdot10^{-3}m^3}{10^{-6}m^2}3.408\cdot10^{-3}\frac{s}{m}\\
+&\approx 6.816s
+}
+\subsection*{e}
+The inner diameter of my bike is $32.5cm$, the outer diameter is $36cm$, and the width is $5cm$. The average diameter is roughly $34.25cm$ and the cross sectional area is roughly $\pi(2.5cm)^2$. Approximating the tire as a cylinder the total volume is then $V \approx \pi^2214cm^3$.
+\eq{
+A &= \frac{2V}{\tau}\sqrt{\frac{m}{kT}}\\
+&\approx \frac{2\pi^2 214\cdot 10 ^{-6}m^3}{360s}3.408\cdot10^{-3}\frac{s}{m}\\
+&\approx 4.000\cdot10^{-8}m^2\\
+&\approx 0.04mm^2
+}
+
+\subsection*{f}
+The ISS has a volume of approximately $1005m^3$ and in 2004, for a brief period of time, was leaking $2.2kg$ of air per day. Let's suppose that when we open the window we wouldn't mind loosing $2.2kg$ of air and that our ship has an interior volume of $1005m^3$.
+
+The density of air is roughly $1.1455\frac{kg}{m^3}$, so there is nominally
+\eq{
+1.1455\frac{kg}{m^3}1005m^3 &\approx 1151kg
+}
+Then we're interested in how long it would take to loose $2.2kg$ as a function of area
+\eq{
+t&=\ln\br{\frac{N(0)}{N(t)}}\frac{2V}{A}\sqrt{\frac{m}{kT}}\\
+&\approx \ln\br{\frac{1151kg}{2.2kg}}\frac{2\cdot1005m^3}{A}3.408\cdot10^{-3}\frac{s}{m}\\
+&\approx \frac{42.88m^2}{A}
+}
+Suppose a dead dog is $1m$ in long and $50cm$ in diameter and we can throw it at most $0.5\frac{m}{s}$, so we would then need to leave our window open for at least $2s$. However, the total time we can leave a window of diameter $50cm$ open is $\approx200s$; so we could safely dispose of the dog.
+
+\section*{Problem 1.54}
+\subsection*{a}
+The total amount of mechanical work required is
+\eq{
+W&=mgh\\
+&\approx (60kg)(9.834\frac{m}{s^2})(1500m)\\
+&\approx 885060J
+}
+Converting to units of bowls
+\eq{
+885060J4\frac{1kcal}{4184}\frac{1bowl}{100kcal} \approx 8.46\text{ bowls}
+}
+
+\subsection*{b}
+As the hiker is climbing
+\eq{
+885060J\cdot3\approx 2655180J
+}
+are converted to heat, which converting to Celsius, assuming the climber is mostly water
+\eq{
+\frac{kgC}{4184J}\frac{2655180J}{60kg} \approx 10.57C
+}
+
+\subsection*{c}
+\eq{
+\frac{1g}{580cal}\frac{1000cal}{1kcal}\frac{1kcal}{4184J}(2655180J)\frac{1kg}{1000g}\frac{1L}{1kg}\approx1.09L
+}
+
+\section*{Problem 1.55}
+\subsection*{a}
+The central force equation of motion is
+\eq{\mu\omega^2d&=G\frac{m^2}{d^2}}
+Where $\mu=\frac{m}{2}$. The rotational kinetic energy for both particles is $U_k=(mr^2)\omega^2$. The gravitational potential energy is $U_p=-\frac{Gm^2}{2r}$
+\eq{
+\frac{m}{2}\omega^22r&=G\frac{m^2}{(2r)^2}\\
+-2mr^2\omega^2&=-\frac{Gm^2}{2r}\\
+-2U_k &= U_p
+}
+\subsection*{b}
+The total energy of the system is
+\eq{
+U_T = U_p+U_k=-U_k
+}
+so as the total energy increases the kinetic energy decreases.
+\subsection*{c}
+The total energy is, as we saw in part (b) $-U_k$, which increases proportionally with the number of particles so $U=-U_kN=-\frac{3}{2}kTN$. Just using the definition of heat capacity
+\eq{
+C\equiv\frac{\partial U}{\partial T}= -\partial_TU_k = -\frac{3}{2}kN
+}
+\subsection*{d}
+The units of
+\subsection*{e}
+We saw from part (d) that
+\eq{
+U_p&=-\frac{GM^2}{R} = -2U_k = -\frac{3}{2}kTN\\
+T&=\frac{GM^2}{3R}\frac{1}{kN}
+}
+Since we're only dealing with protons and electrons $M=n_pm_p+n_em_e$ and $N=n_p+n_e$. It's implied in the problem statement that $n_p\approx n_e$ so we can say that
+\eq{
+\frac{M}{N}=\frac{n_pm_p+n_em_e}{n_p+n_e}\approx\frac{m_e+m_p}{2}\approx \frac{m_p}{2}
+}
+So the final average temprature is
+\eq{
+T &= \frac{(6.67\cdot10^{-11}\frac{Nm^2}{kg^2})(2\cdot10^{30}kg)}{6(7\cdot10^8m)(1.38\cdot10^{-23}\frac{J}{K})}(1.672\cdot10^{-27}kg)\\
+&\approx 3.848\cdot10^6K
+}

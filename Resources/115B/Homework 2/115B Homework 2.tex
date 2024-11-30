@@ -1,0 +1,190 @@
+\section*{3.6}
+Let $f$ and $g$ be $2\pi$ periodic functions, then
+\eq{
+<g|\Q|f> &= \int_0^{2\pi} g* dd\phi2f d\phi\\
+&= g* dd\phi0f eva_0^{2\pi}-\int_0^{2 pi} dd\phi0g* dd\phi0f d\phi\\
+&= g* dd\phi0f eva_0^{2\pi} -f dd\phi0g* eva_0^{2\pi}+ \int_0^{2\pi} dd\phi2g* f d\phi\\
+&= \int_0^{2\pi} dd\phi2g* f d\phi\\
+&= <\Q g| f>
+}
+$\implies \Q$ is Hermetian. The Eigen-values are
+\eq{
+\Q f &= ddx2 f\\
+&=\la f\\
+\implies f &= \ex{\pm\sqrt{\la}\phi}
+}
+The periodicity of $f$ requires that
+\eq{
+f(\phi) &= \ex{\pm \sqrt{\la}\phi}\\
+f(\phi+2\pi) &= \ex{\pm\sqrt{\la}}\ex{\pm\sqrt{\la}2\pi}\\
+\implies 1&=\ex{\pm\sqrt{\la}2\pi}\\
+\implies \pm\sqrt{\la} &= i k\\
+\implies \la &= -k^2
+}
+Where $k\in \mathbb{Z}$, so the spectra of $\Q$ is $\{ -k^2: k\in \mathbb{Z} \}$. The spectrum is degenerate, every Eigen-value corresponds to two Eigen-vectors. 
+\eq{
+f_{-k^2}(\phi) &= \ex{\mp ik\phi}
+}
+\section*{3.16}
+Suppose that $\A$ and $\B$ share a complete set of Eigen-functions, then the commutator is
+\eq{
+[\A,\B] &= \A\B-\B\A\\
+}
+The contra-positive is then if $[\A,\B] \neq 0$ then $\hat{A}$ and $\hat{B}$ do not share a set of common Eigen-functions.
+\section*{3.23}
+\eq{
+P &= \sum_j \ket{\phi_j}\bra{\phi_j}\\
+P^2 &= \br{\sum_j \ket{\phi_j}\bra{\phi_j}}\br{\sum_k \ket{\phi_j}\bra{\phi_j}}\\
+&= \sum_j \sum_k \br{\ket{\phi_j}\bra{\phi_j}}\br{\ket{\phi_k}\bra{\phi_k}}\\
+&=\sum_j \sum_k \ket{\phi_j} <\phi_j|\phi_k> \bra{\phi_k}\\
+&=\sum \ket{\phi_j}\bra{\phi_j}\\
+&=P
+}
+\section*{3.25}
+The Eigen-values of the Hamiltonian are
+\eq{
+\ham \ket{\psi} &= \la \ket{\psi}\\
+}
+\section*{3.36}
+\subsection*{a}
+\eq{
+<\psi|\psi> &= dint -infinity infinity \psi*\psi dx\\
+&= dint -infinity infinity ( A/x^2+a^2 )* ( A/x^2+a^2 ) dx\\
+&= A^2 dint -infinity infinity 1/(x^2+a^2)^2 dx\\
+&= A^2 \frac{\pi}{2a^3}\\
+\implies A &= \sqrt{\frac{2a^3}{\pi}}
+}
+\subsection*{b}
+The expectation value of $x$ is
+\eq{
+<x> &= <\psi | x | \psi>\\
+&= dint -infinity infinity ( A/x^2+a^2 )* x( A/x^2+a^2 ) dx\\
+&= A^2 dint -infinity infinity x/(x^2+a^2)^2 dx\\
+&= 0\\
+}
+Where we conclude the integral must be $0$ since the integrand is anti-symmetric. The expectation value for $x^2$ is
+\eq{
+<x^2> &= <\psi | x^2 | \psi>\\
+&= dint -infinity infinity ( A/x^2+a^2 )* x^2( A/x^2+a^2 ) dx\\
+&= A^2 dint -infinity infinity ( x/x^2+a^2 )^2 dx\\
+&= \frac{2a^3}{\pi} ( 1/2a \arctan( x/a ) - 1/2 ( a^2/x + x)^{-1}) @_{-infinity}^infinity\\
+&= \frac{2a^3}{\pi} 1/2a (\frac{\pi}{2} + \frac{\pi}{2})\\
+&= a^2
+}
+The uncertainty in $x$ is then
+\eq{
+\sigma_x &= \sqrt{< x^2 > - <x>^2}\\
+&= \sqrt{a^2-0^2}\\
+&= a
+}
+\subsection*{c}
+In momentum space
+\eq{
+\phi(x,0)&= \frac{1}{\sqrt{2\pi \h}} dint -infinity infinity \psi(x,0) \ex{-i px/\h }dx \\
+&= \frac{A}{\sqrt{2\pi \h}} dint -infinity infinity \frac{\ex{-i px/\h }}{x^2+a^2}dx\\
+&= \frac{a}{\pi}\sqrt{\frac{a}{\h}} (\pm \oint \frac{\ex{-i \frac{p}{\h}z}}{z^2+a^2}dz-\int_{arc}\frac{\ex{-i \frac{p}{\h}z}}{z^2+a^2}dz)\\
+}
+For the second term to go to $0$, if $p > 0$ we want to integrate cw over the lower half. Conversely, if $p < 0$ we want to integrate ccw over the upper half.
+
+Suppose $p > 0$, then
+\eq{
+\phi(x,0) &= -\frac{a}{\pi}\sqrt{\frac{a}{\h}} 2\pi i \sum Res \left[ \frac{\ex{-i \frac{p}{\h}z}}{(z+ia)(z-ia)}\right]_{z=-ia}\\
+&= -\frac{a}{\pi}\sqrt{\frac{a}{\h}} 2\pi i (\frac{\ex{-\frac{p}{\h}a}}{-2ia})\\
+&= \sqrt{\frac{a}{\h}}\ex{-\frac{p}{\h}a}\\
+&= \sqrt{\frac{a}{\h}}\ex{-\frac{|p|}{\h}a}
+}
+Alternatively, if $p < 0$, then
+\eq{
+\phi(x,0) &= \frac{a}{\pi}\sqrt{\frac{a}{\h}} 2\pi i \sum Res \left[ \frac{\ex{-i \frac{p}{\h}z}}{(z+ia)(z-ia)}\right]_{z=ia}\\
+&= \frac{a}{\pi}\sqrt{\frac{a}{\h}} 2\pi i (\frac{\ex{\frac{p}{\h}a}}{2ia})\\
+&= \sqrt{\frac{a}{\h}}\ex{\frac{p}{\h}a}\\
+&= \sqrt{\frac{a}{\h}}\ex{-\frac{|p|}{\h}a}
+}
+So we conclude that
+\eq{
+\phi(x,0) &= \sqrt{\frac{a}{\h}}\ex{-\frac{|p|}{\h}a}
+}
+Now to check if it's normalized
+\eq{
+<\phi|\phi> &= \frac{a}{\h} dint -infinity infinity \ex{-\frac{2|p|}{\h}a} dp\\
+&= \frac{a}{\hbar}( dint 0 infinity \ex{-\frac{2p}{\h}a} dp + dint -infinity 0 \ex{\frac{2p}{\h}a} dp)\\
+&= \frac{a}{\hbar}\frac{\hbar}{2a} (-\ex{-\frac{2p}{\h}a} @_0^\infty + \ex{\frac{2p}{\h}a} @_{-infinity}^0 )\\
+&= \frac{a}{\hbar}\frac{\hbar}{2a} 2\\
+&= 1
+}
+\subsection*{d}
+Calculating the expectation value of $p$
+\eq{
+<p> &= \frac{a}{\h} dint -infinity infinity p \ex{-\frac{2|p|}{\h}a} dp\\
+&= 0
+}
+By anti-symmetry. Now we calculate the expectation value of $p^2$
+\eq{
+<p^2> &= \frac{a}{\h} dint -infinity infinity p^2 \ex{-\frac{2|p|}{\h}a} dp\\
+&= \frac{a}{\h}2 dint 0 infinity p^2 \ex{-\frac{2p}{\h}a} dp\\
+&=\frac{2a}{\h} (-\frac{\h}{2a}p^2\ex{-\frac{2p}{\h}a}@_0^infinity+\frac{\h}{2a}dint 0 infinity p \ex{-\frac{2p}{\h}a} dp)\\
+&= -\frac{\h}{a}p\ex{-\frac{2p}{\h}a}@_0^infinity+\frac{\h}{a}dint 0 infinity \ex{-\frac{2p}{\h}a} dp\\
+&= \frac{\h}{a}(-\frac{\h}{2a}\ex{-\frac{2p}{\h}a}@_0^infinity)\\
+&= \frac{\h^2}{2a^2}
+}
+The uncertainty in $p$ is then
+\eq{
+\sigma_p &= \sqrt{<p^2>-<p>^2}\\
+&= \sqrt{\frac{\h^2}{2a^2}-0^2}\\
+&= \frac{1}{\sqrt{2}}\frac{\h}{a}
+}
+\subsection*{e}
+Now to check the Waltuh principle
+\eq{
+\sigma_x\sigma_p &= a\frac{1}{\sqrt{2}}\frac{\h}{a}\\
+&= \frac{\h}{\sqrt{2}}\\
+\implies \sigma_x\sigma_p &\geq \frac{\h}{2}
+}
+\section*{3.40}
+\subsection*{a}
+We know that the position operator can be written in terms of raising and lowering operators
+\eq{
+\hat{x} &= \sqrt{\frac{\h}{2m\w}}(\hat{a}_-+\hat{a}_+)
+}
+So the expectation value of $\hat{x}$ can be written as
+\eq{
+<x>_\psi &= \sqrt{\frac{\h}{2m\w}}<\psi | (\hat{a}_-+\hat{a}_+) | \psi >\\
+&= \sqrt{\frac{\h}{2m\w}} \bra{\psi}(\sum_{p=0}^\infty c_p \hat{a}_-\ket{\psi_p} \ex{-i\frac{E_p}{\h}t}+\sum_{p=0}^\infty c_p \hat{a}_+\ket{\psi_p} \ex{-i\frac{E_p}{\h}t})\\
+&= \sqrt{\frac{\h}{2m\w}} \bra{\psi}(\sum_{p=0}^\infty c_p \sqrt{p}\ket{\psi_{p-1}} \ex{-i\frac{E_p}{\h}t}+\sum_{p=0}^\infty c_p \sqrt{p+1}\ket{\psi_{p+1}} \ex{-i\frac{E_p}{\h}t})\\
+&= \sqrt{\frac{\h}{2m\w}} \{ (\sum_{p=0}^\infty c_p*\bra{\psi_{p}} \ex{i\frac{E_p}{\h}t})(\sum_{p=0}^\infty c_p \sqrt{p}\ket{\psi_{p-1}} \ex{-i\frac{E_p}{\h}t})\\
+&+(\sum_{p=0}^\infty c_p* \bra{\psi_{p}} \ex{i\frac{E_p}{\h}t})(\sum_{p=0}^\infty c_p \sqrt{p+1}\ket{\psi_{p+1}} \ex{-i\frac{E_p}{\h}t})\}\\
+&=\sqrt{\frac{\h}{2m\w}}\{\sum_{p=0}^\infty \sum_{q=0}^\infty c_p* c_q\sqrt{q}\ex{i\frac{E_p-E_q}{\h}t}<\psi_p|\psi_{p-1}>\\
+&+\sum_{p=0}^\infty \sum_{q=0}^\infty c_p* c_q\sqrt{q+1}\ex{i\frac{E_p-E_q}{\h}t}<\psi_p|\psi_{p+1}>\}
+}
+The first double summation goes to $0$ unless $p=q-1$, similarly for the second double sum $p = q+1$
+\eq{
+<x>_\psi
+&=\sqrt{\frac{\h}{2m\w}}\{\sum_{p=0}^\infty c_p* c_{p+1}\sqrt{p+1}\ex{i\frac{E_p-E_{p+1}}{\h}t}\\
+&+\sum_{p=0}^\infty c_p* c_{p-1}\sqrt{p}\ex{i\frac{E_p-E_{p-1}}{\h}t}\}
+}
+Notice that for the second summation
+\eq{
+\sum_{p=0}^\infty c_p* c_{p-1}\sqrt{p}\ex{i\frac{E_p-E_{p-1}}{\h}t}
+&= \sum_{p=1}^\infty c_p* c_{p-1}\sqrt{p}\ex{i\frac{E_p-E_{p-1}}{\h}t}\\
+&= \sum_{p=0}^\infty c_{p+1}* c_{p}\sqrt{p+1}\ex{i\frac{E_{p+1}-E_{p}}{\h}t}
+}
+We can also simplify the exponential term by noting that $E_{p+1}-E_p = \h \w$ and letting $c_{p+1}^\ast c_p \sqrt{p+1} \equiv \beta_p$
+\eq{
+<x>_\psi
+&=\sqrt{\frac{\h}{2m\w}}((\sum_{p=0}^\infty \beta_p) \ex{-i\w t}+(\sum_{p=0}^\infty \beta_p)* \ex{i\w t})
+}
+We'll make the following substitution
+\eq{
+\sqrt{\frac{\h}{2m\w}} \sum_{p=0}^\infty \beta_p &= \frac{C}{2}\ex{-i\phi}
+}
+\eq{
+<x>_\psi &= \frac{C}{2}\ex{-i\phi}\ex{-i\w t} + \frac{C}{2}\ex{i\phi}\ex{i\w t}\\
+&= C\frac{\ex{i(\w t + \phi)}+\ex{-i(\w t + \phi)}}{2}\\
+&= C \cos(\w t + \phi)
+}
+Expanding out our substitutions
+\eq{
+C\ex{-i\phi} &= \sqrt{\frac{2\h}{m\w}}\sum_{p=0}^\infty c_{p+1}* c_p \sqrt{p+1}
+}
+\subsection*{b}
+We first have to expand $\psi(x,0)$ in it's stationary states

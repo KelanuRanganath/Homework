@@ -1,0 +1,101 @@
+% Shorthand
+\newcommand{\w}[0]{\omega}
+\newcommand{\Q}[0]{\hat{Q}}
+\newcommand{\A}[0]{\hat{A}}
+\newcommand{\B}[0]{\hat{B}}
+\newcommand{\ham}[0]{\hat{H}}
+\newcommand{\h}[0]{\hbar}
+\newcommand{\la}[0]{\lambda}
+\newcommand{\p}[0]{\psi}
+\newcommand{\pr}[0]{\partial}
+\newcommand{\bk}[1]{\braket{#1}}
+\newcommand{\s}[0]{\sigma}
+
+% Common patterns
+\newcommand{\da}[0]{^\dagger}
+\newcommand{\conj}[0]{^\ast}
+\newcommand{\dx}[1]{\frac{d^#1}{dx^#1}}
+\newcommand{\ex}[1]{e^{#1}}
+\newcommand{\br}[1]{\left( #1 \right)}
+
+% Pauli matricies
+\newcommand{\sx}[0]{
+\begin{pmatrix}
+    0 & 1\\
+    1 & 0
+\end{pmatrix}
+}
+
+\newcommand{\sy}[0]{
+\begin{pmatrix}
+    0 & -i\\
+    i & 0
+\end{pmatrix}
+}
+
+\newcommand{\sz}[0]{
+\begin{pmatrix}
+    1 & 0\\
+    0 & -1
+\end{pmatrix}
+}
+
+% Spin operators
+\newcommand{\Sp}[0]{\hat{S}}
+\newcommand{\Sz}[0]{\frac{\h}{2}\sz}
+\newcommand{\Sx}[0]{\frac{\h}{2}\sx}
+\newcommand{\Sy}[0]{\frac{\h}{2}\sy}
+
+\newcommand{\I}[0]{
+\begin{pmatrix}
+    1 & 0\\
+    0 & 1
+\end{pmatrix}
+}
+
+% Column vector
+\directlua{dofile('Lib/Lua/inlinevec.lua')}
+\newcommand{\cv}[1]{
+\begin{pmatrix}
+    \directlua{tex.print(inlinecv("#1"))}
+\end{pmatrix}
+}
+
+% Equation enviroment
+\directlua{dofile('Lib/Lua/inlinereplace.lua')}
+% https://tex.stackexchange.com/questions/550673/what-are-some-typical-luatex-gotchas
+% https://tex.stackexchange.com/questions/228437/luatexluaescape-string-and-backslash
+% https://tex.stackexchange.com/questions/435593/is-there-a-simpler-macro-for-fraction
+\newcommand{\eq}[1]{
+\begin{equation}
+\begin{split}
+\directlua{tex.sprint(inlinereplace("\luaescapestring{\unexpanded{#1}}"))}
+\end{split}
+\end{equation}
+}
+
+% Simplified equation enviroment, use on older documents, or when everything goes to shit with \eq
+\newcommand{\eql}[1]{
+\begin{equation}
+\begin{split}
+    #1
+\end{split}
+\end{equation}
+}
+   
+% Function for fast simple fractions
+\directlua{dofile('Lib/Lua/frac.lua')}
+\newcommand{\n}[1]{
+    \directlua{
+    tex.print(table.concat({'\\frac',frac("#1")}))
+    }
+}
+
+% Lua function for creating LaTeX variables based on load.json
+\directlua{dofile('Lib/Lua/make.lua')}
+\newcommand{\make}[0]{
+    \directlua{
+    tex.print(make())
+    }
+}
+

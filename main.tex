@@ -1,0 +1,62 @@
+\include{Lib/preamble}
+
+\include{Lib/cookbook}
+
+\begin{document}
+
+% Update make.json and recompile to change assignment
+\make
+
+\end{document}
+
+% TODO List
+
+% LaTeX expands commands with a space, so the Lua parser gets confused because I use whitespace to separate fractions.
+% If you write \phix/y -> \phi x/y; however, \phi x/y -> \phi x/y
+% So this becomes impossible to fix, we can only write the macro
+% "\\command " -> "command" -> "\\command" and remember that \phi x/y -> \phix/y
+% So to write \phi(x/y) we now have to write phi x/y -> \phi x/y
+% Perhaps there's a way to fix this
+
+% Recursively expand curly and square brackets
+
+% Possibly REALLY BAD problem, Lua tables aren't initialized in any particular order
+% This leads patterns to be applied randomly, this is bad (makes previous hack non-deterministic)
+
+% I think, at some point spaces are inserted before \ in the macro file
+% "&aprox" doesn't match the "aprox" pattern but "& aprox" does
+% This breaks fractions, for example 1/\epsilon -> 1/ \epsilon
+
+% I think the last two problems can be fixed at the same time by removing luajson
+
+% It would be nice to recursively insert fractions somehow
+% The fundamental issue is discerning the start and end of a fraction and the hierarchy
+
+% I think both fraction problems can be solved by choosing a better delimiter
+
+% auto-apply curly brackets to some commands like sqrt, _, or ^
+
+% Figure out how to auto-insert \\ at the end of an equation line
+% Fundamentally LaTeX converts \n -> " " before we can detokenize
+% https://tex.stackexchange.com/questions/153506/insert-a-new-line-without-newline-command
+% https://www.overleaf.com/learn/latex/Line_breaks_and_blank_spaces#Line_breaks
+
+% It would be nice to have a meta information file for each class that gets compiled with it
+
+% Using the differential operator before = causes the pdf to fail to compile
+% ppU0S = -> \frac{\partial S&=}{\partial U}, this makes no sense
+% This also happens after the equals, goes away when manually aligning
+
+% Fractions fail if there's no preceeding whitespace, this is a problem at the start of a line
+% We should be able to add a start of line character to the pattern
+
+% Diff ops. and likely other patterns fail at the end of the line, expects " " gets "\\"
+
+% (FIXED) Fractions do not render when placed next to each other
+% This is because the Lua regex engine will not match overlapping patterns
+
+% (FIXED) Extend the differential op pattern to include partial derivatives
+
+% (FIXED) Replace fractions with /
+
+% (FIXED) Replace brackets with \left( \right) in all instances
