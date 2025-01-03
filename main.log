@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2024.11.17)  9 DEC 2024 11:45
+This is LuaHBTeX, Version 1.14.0 (TeX Live 2022/dev/Debian)  (format=lualatex 2024.11.17)  3 JAN 2025 01:29
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -592,275 +592,238 @@ File: pgflibrarypatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 zlibraryangles.code.tex
 File: tikzlibraryangles.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/braket/braket.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
-Package: mdframed 2013/07/01 1.9b: mdframed
+(/usr/share/texlive/texmf-dist/tex/latex/braket/braket.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count302
+\float@exts=\toks35
+\float@box=\box63
+\@float@everytoks=\toks36
+\@floatcapt=\box64
+)
 
-(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-01-21 L3 programming layer (loader) 
+LaTeX Warning: \include should only be used after \begin{document} on input lin
+e 3.
 
+(./Lib/cookbook.tex
+\c@eqen=\count303
+\c@usection=\count304
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2022-01-12 L3 backend support: PDF output (LuaTeX)
-\l__color_backend_stack_int=\count302
-\l__pdf_internal_box=\box63
+\l__color_backend_stack_int=\count305
+\l__pdf_internal_box=\box65
+)
+(./main.aux ("./Resources/245/Homework 6/245 Homework 6.aux"))
+\openout1 = main.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 5
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count306
+\scratchdimen=\dimen263
+\scratchbox=\box66
+\nofMPsegments=\count307
+\nofMParguments=\count308
+\everyMPshowfont=\toks37
+\MPscratchCnt=\count309
+\MPscratchDim=\dimen264
+\MPnumerator=\count310
+\makeMPintoPDFobject=\count311
+\everyMPtoPDFconversion=\toks38
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
 ))
-Package: xparse 2022-01-12 L3 Experimental document command parser
-)
-(/usr/share/texlive/texmf-dist/tex/latex/zref/zref-abspage.sty
-Package: zref-abspage 2020-07-03 v2.32 Module abspage for zref (HO)
+Package hyperref Info: Link coloring OFF on input line 5.
 
-(/usr/share/texlive/texmf-dist/tex/latex/zref/zref-base.sty
-Package: zref-base 2020-07-03 v2.32 Module base for zref (HO)
-Package zref Info: New property list: main on input line 764.
-Package zref Info: New property: default on input line 765.
-Package zref Info: New property: page on input line 766.
-)
-\c@abspage=\count303
-Package zref Info: New property: abspage on input line 66.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/needspace/needspace.sty
-Package: needspace 2010/09/12 v1.3d reserve vertical space
-)
-\mdf@templength=\skip53
-\c@mdf@globalstyle@cnt=\count304
-\mdf@skipabove@length=\skip54
-\mdf@skipbelow@length=\skip55
-\mdf@leftmargin@length=\skip56
-\mdf@rightmargin@length=\skip57
-\mdf@innerleftmargin@length=\skip58
-\mdf@innerrightmargin@length=\skip59
-\mdf@innertopmargin@length=\skip60
-\mdf@innerbottommargin@length=\skip61
-\mdf@splittopskip@length=\skip62
-\mdf@splitbottomskip@length=\skip63
-\mdf@outermargin@length=\skip64
-\mdf@innermargin@length=\skip65
-\mdf@linewidth@length=\skip66
-\mdf@innerlinewidth@length=\skip67
-\mdf@middlelinewidth@length=\skip68
-\mdf@outerlinewidth@length=\skip69
-\mdf@roundcorner@length=\skip70
-\mdf@footenotedistance@length=\skip71
-\mdf@userdefinedwidth@length=\skip72
-\mdf@needspace@length=\skip73
-\mdf@frametitleaboveskip@length=\skip74
-\mdf@frametitlebelowskip@length=\skip75
-\mdf@frametitlerulewidth@length=\skip76
-\mdf@frametitleleftmargin@length=\skip77
-\mdf@frametitlerightmargin@length=\skip78
-\mdf@shadowsize@length=\skip79
-\mdf@extratopheight@length=\skip80
-\mdf@subtitleabovelinewidth@length=\skip81
-\mdf@subtitlebelowlinewidth@length=\skip82
-\mdf@subtitleaboveskip@length=\skip83
-\mdf@subtitlebelowskip@length=\skip84
-\mdf@subtitleinneraboveskip@length=\skip85
-\mdf@subtitleinnerbelowskip@length=\skip86
-\mdf@subsubtitleabovelinewidth@length=\skip87
-\mdf@subsubtitlebelowlinewidth@length=\skip88
-\mdf@subsubtitleaboveskip@length=\skip89
-\mdf@subsubtitlebelowskip@length=\skip90
-\mdf@subsubtitleinneraboveskip@length=\skip91
-\mdf@subsubtitleinnerbelowskip@length=\skip92
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
-(/usr/share/texlive/texmf-dist/tex/latex/mdframed/md-frame-1.mdf
-File: md-frame-1.mdf 2013/07/01\ 1.9b: md-frame-1
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
-\mdf@frametitlebox=\box64
-\mdf@footnotebox=\box65
-\mdf@splitbox@one=\box66
-\mdf@splitbox@two=\box67
-\mdf@splitbox@save=\box68
-\mdfsplitboxwidth=\skip93
-\mdfsplitboxtotalwidth=\skip94
-\mdfsplitboxheight=\skip95
-\mdfsplitboxdepth=\skip96
-\mdfsplitboxtotalheight=\skip97
-\mdfframetitleboxwidth=\skip98
-\mdfframetitleboxtotalwidth=\skip99
-\mdfframetitleboxheight=\skip100
-\mdfframetitleboxdepth=\skip101
-\mdfframetitleboxtotalheight=\skip102
-\mdffootnoteboxwidth=\skip103
-\mdffootnoteboxtotalwidth=\skip104
-\mdffootnoteboxheight=\skip105
-\mdffootnoteboxdepth=\skip106
-\mdffootnoteboxtotalheight=\skip107
-\mdftotallinewidth=\skip108
-\mdfboundingboxwidth=\skip109
-\mdfboundingboxtotalwidth=\skip110
-\mdfboundingboxheight=\skip111
-\mdfboundingboxdepth=\skip112
-\mdfboundingboxtotalheight=\skip113
-\mdf@freevspace@length=\skip114
-\mdf@horizontalwidthofbox@length=\skip115
-\mdf@verticalmarginwhole@length=\skip116
-\mdf@horizontalspaceofbox=\skip117
-\mdfsubtitleheight=\skip118
-\mdfsubsubtitleheight=\skip119
-\c@mdfcountframes=\count305
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count312
+)
+LaTeX Info: Redefining \ref on input line 5.
+LaTeX Info: Redefining \pageref on input line 5.
+LaTeX Info: Redefining \nameref on input line 5.
 
-****** mdframed patching \endmdf@trivlist
+(./main.out) (./main.out)
+\@outlinefile=\write4
 
-****** -- success******
+\openout4 = main.out
+LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
 
-\mdf@envdepth=\count306
-\c@mdf@env@i=\count307
-\c@mdf@env@ii=\count308
-\c@mdf@zref@counter=\count309
-Package zref Info: New property: mdf@pagevalue on input line 895.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-(/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
-Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
 
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
-Package pgfplots info on input line 124: Initializing with LUA version Lua 5.3
-\pgfplots@luabackend@table=\catcodetable12
-\t@pgfplots@toka=\toks35
-\t@pgfplots@tokb=\toks36
-\t@pgfplots@tokc=\toks37
-\pgfplots@tmpa=\dimen263
-\c@pgfplots@coordindex=\count310
-\c@pgfplots@scanlineindex=\count311
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code
-.tex))
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.t
-ex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldp
-gfsupp_loader.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/luamath/pgflibraryluam
-ath.code.tex)
-Package pgfplots info on input line 290: luamath library shipped with pgf 3.1.9
-a is up-to-date
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
-Package pgfplots info on input line 82: Found new luatex: initializing lua comm
-ands instead of write18 (shell-escape)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
-tructure.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotslists
-tructureext.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray
-.code.tex
-\c@pgfplotsarray@tmp=\count312
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatri
-x.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshare
-d.code.tex
-\c@pgfplotstable@counta=\count313
-\t@pgfplotstable@a=\toks38
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque
-.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.te
-x
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.co
-de.tex))
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code
-.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.sur
-fshading.code.tex
-\c@pgfplotslibrarysurf@no=\count314
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surf
-shading.pgfsys-luatex.def)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.
-tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.t
-ex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.t
-ex
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.cod
-e.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.
-tex)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.cod
-e.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex
-) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex
-) (/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarydecorations.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
-e.tex
-\pgfdecoratedcompleteddistance=\dimen264
-\pgfdecoratedremainingdistance=\dimen265
-\pgfdecoratedinputsegmentcompleteddistance=\dimen266
-\pgfdecoratedinputsegmentremainingdistance=\dimen267
-\pgf@decorate@distancetomove=\dimen268
-\pgf@decorate@repeatstate=\count315
-\pgfdecorationsegmentamplitude=\dimen269
-\pgfdecorationsegmentlength=\dimen270
-)
-\tikz@lib@dec@box=\box69
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarydecorations.pathmorphing.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
-decorations.pathmorphing.code.tex))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarydecorations.pathreplacing.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
-decorations.pathreplacing.code.tex))
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.co
-ntourlua.code.tex)
-\pgfplots@numplots=\count316
-\pgfplots@xmin@reg=\dimen271
-\pgfplots@xmax@reg=\dimen272
-\pgfplots@ymin@reg=\dimen273
-\pgfplots@ymax@reg=\dimen274
-\pgfplots@zmin@reg=\dimen275
-\pgfplots@zmax@reg=\dimen276
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibraryplotmarks.code.tex
-File: tikzlibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.co
-de.tex
-File: pgflibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.co
-lormaps.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.po
-lar.code.tex) (/usr/share/texlive/texmf-dist/tex/latex/cancel/cancel.sty
-Package: cancel 2013/04/12 v2.2 Cancel math terms
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-! LaTeX Error: File `pythonhighlight.sty' not found.
+LaTeX Warning: No \author given.
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
+[1
 
-Enter file name: 
-! Emergency stop.
-<read *> 
-   
-l.19 \usepackage
-              {subcaption}
-*** (cannot \read from terminal in nonstop modes)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+No file main.toc.
+\tf@toc=\write5
+
+\openout5 = main.toc
+
+warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
+[1
+
+]
+\openout2 = Resources/ATCT/Homework 1/ATCT Homework 1.aux
+ ("./Resources/ATCT/Homework 1/ATCT Homework 1.tex" [2
 
 
+]
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.1'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.1'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.1'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.1'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.2'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.2'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.2'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.2'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.3'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.3'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.3'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.3'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.4'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.4'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.4'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.4'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.5'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.5'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.5'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.5'
+[3]
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.1'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.1'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.1'
+
+warning  (pdf backend): ignoring duplicate destination with the name 'equation.0
+.0.1'
+) [4] (./main.aux ("./Resources/ATCT/Homework 1/ATCT Homework 1.aux"))
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  98838BCBF952974EE607702812C1707A;635.
+)
 
 Here is how much of LuaTeX's memory you used:
- 32872 strings out of 477805
- 125056,1373583 words of node,token memory allocated 573 words of node memory still in use:
-   3 hlist, 1 rule, 1 dir, 91 glue_spec, 2 if_stack, 1 write, 1 pdf_colorstack n
-odes
-   avail lists: 1:1,2:38,3:2,4:1,5:5,7:2,9:2
- 52455 multiletter control sequences out of 65536+600000
- 15 fonts using 633019 bytes
- 105i,0n,103p,752b,245s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 22421 strings out of 477805
+ 125056,794899 words of node,token memory allocated
+ 457 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 54 glue_spec, 4 write nodes
+   avail lists: 2:40,3:150,4:21,5:224,6:32,7:1921,8:44,9:913,10:2,11:52
+ 42155 multiletter control sequences out of 65536+600000
+ 60 fonts using 2492863 bytes
+ 105i,21n,103p,519b,350s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr1
+0.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on main.pdf (5 pages, 173433 bytes).
+
+PDF statistics: 108 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 29 named destinations out of 1000 (max. 131072)
+ 16 words of extra memory for PDF output out of 10000 (max. 100000000)
+
