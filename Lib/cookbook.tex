@@ -67,11 +67,15 @@
 % https://tex.stackexchange.com/questions/228437/luatexluaescape-string-and-backslash
 % https://tex.stackexchange.com/questions/435593/is-there-a-simpler-macro-for-fraction
 \newcommand{\eq}[1]{
-\begin{equation}
-\begin{split}
 \directlua{tex.sprint(inlinereplace("\luaescapestring{\unexpanded{#1}}"))}
-\end{split}
-\end{equation}
+}
+
+% Experimental equation enviroment
+\directlua{dofile('Lib/Lua/inlinereplaceexperimental.lua')}
+\newcounter{eqen}
+\newcommand{\eqe}[1]{
+\directlua{tex.sprint(inlinereplaceexperimental(\arabic{eqen}))}
+\stepcounter{eqen}
 }
 
 % Simplified equation enviroment, use on older documents, or when everything goes to shit with \eq
@@ -82,14 +86,6 @@
 \end{split}
 \end{equation}
 }
-   
-% Function for fast simple fractions
-\directlua{dofile('Lib/Lua/frac.lua')}
-\newcommand{\n}[1]{
-    \directlua{
-    tex.print(table.concat({'\\frac',frac("#1")}))
-    }
-}
 
 % Lua function for creating LaTeX variables based on load.json
 \directlua{dofile('Lib/Lua/make.lua')}
@@ -99,3 +95,12 @@
     }
 }
 
+\newcounter{usection}
+\newcommand{\usection}[1]{\section*{#1}
+\stepcounter{usection}
+\addcontentsline{toc}{section}{\protect\numberline{}#1}}
+
+\newcommand{\uchapter}[1]{\chapter*{#1}
+\addcontentsline{toc}{chapter}{#1}}
+
+\counterwithin{equation}{usection}
