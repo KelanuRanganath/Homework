@@ -1,0 +1,92 @@
+\uchapter{Measure and Integration}
+
+\usection{Exercise A.4}
+\subsection*{Part a}
+Wts.
+\eqe{
+mu(A union B) &= mu(A) + mu(B) - mu(A intersect B)
+}
+\subsection*{Solution}
+\eqe{
+mu(A) &= mu(A minus B union (A intersect B))
+&= mu(A minus B) + mu(A intersect B)
+}
+\eqe{
+mu(A union B) &= mu((A minus B) union (B minus A) union (A intersect B))
+&= mu(A minus B) + mu(B minus A) + mu(A intersect B)
+}
+
+Combining equations (1.2) and (1.3) we get
+\eqe{
+\mu(A) + \mu(B) &= mu(A minus B) + mu(B minus A) + 2mu(A intersect B)
+&= mu(A union B) + mu(A intersect B)
+}
+
+So it follows that
+\eqe{
+mu(A union B) &= mu(A) + mu(B) - mu(A intersect B)
+}
+\subsection*{Part b}
+Wts.
+\eqe{
+B subset A implies mu(A intersect B^c) &= mu(A) - mu(B)
+}
+\subsection*{Solution}
+\eqe{
+mu(A) &= mu(A minus B union B)
+&= mu(A minus B) + mu(B)
+&= mu(A intersect B^c) + mu(B)
+}
+
+So it follows that
+\eqe{
+mu(A) - mu(B) &= mu(A intersect B^c)
+}
+
+\usection{Exercise A.5}
+\subsection*{Part a}
+Wts.
+\eqe{
+integral_X f(x) dmu(x) &= dsum i=1 k f(x_i) p_i
+}
+\subsection*{Solution}
+Definition A.17
+\eqe{
+integral_X f(x) dmu(x) &= \sup_\varphi integral_X \varphi(x) dmu(x)
+}
+
+Where $0 \leq \varphi \leq f$ are simple functions. The integral of a simple function is defined as
+\eqe{
+integral_X \varphi(x) dmu(x) &= lsum 0<y<\infty y mu(g^{-1}(\{y\}))
+}
+$g$ is a function so the pullback of each $y$ is a disjoint set $A_y$
+\eqe{
+lsum 0<y<\infty y mu(g^{-1}(\{y\})) &= lsum 0<y<\infty y mu(A_y)
+&= lsum 0<y<\infty y \sum I_{A_i}(x_i)mu(\{x_i\})
+&= lsum 0<y<\infty \sum g(x_i)I_{A_i}(x_i)p_i
+&= lsum i g(x_i)p_i
+}
+
+Where in the last line we note that $A_y$ partitions $X$.
+But by definition
+\eqe{
+
+}
+
+\usection{Exercise A.6}
+\subsection*{Part a}
+Wts. $f$ and $g$ are not measurable.
+\subsection*{Solution}
+$f$ and $g$ are measurable iff for every interval $I \subseteq \mathbb{R}$ the pullback $f^{-1}(I) \in \mathcal{F}$.
+\eqe{
+f^{-1}([0,1]) &= g^{-1}([1,2]) = [0,1] \notin \mathcal{F}
+}
+So $f$ and $g$ are not measurable.
+
+\subsection*{Part b}
+We want to compute the following
+$$\int_X f d\mu, \int_X g d\mu, \textrm{ and} \int_X(f+g)d\mu$$
+
+\subsection*{Solution}
+
+\usection{Exercise A.7}

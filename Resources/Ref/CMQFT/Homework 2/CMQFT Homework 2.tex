@@ -1,0 +1,41 @@
+\uchapter{Ising Model in $d=0$ and $d=1$}
+\usection{Problem 2.1.1}
+By definition
+\eqe{
+1/Z^2 \frac{\partial Z}{\partial h_1}\frac{\partial Z}{\partial h_2} &= 1/Z \frac{\partial Z}{\partial h_1} 1/Z \frac{\partial Z}{\partial h_2}
+&= <s_1><s_2>
+}
+The expectation of $s_1s_2$ is
+\eqe{
+<s_1s_2> &= 1/Z \sum s_1 s_2 exp(Ks_1s_2 + h_1 s_1 + h_2 s_2)
+&= 1/Z \frac{\partial^2 Z}{\partial h_1 \partial h_2}
+}
+So it follows that
+\eqe{
+1/Z \frac{\partial^2 Z}{\partial h_1 \partial h_2} - 1/Z^2 \frac{\partial Z}{\partial h_1}\frac{\partial Z}{\partial h_2} &= <s_1s_2> -<s_1><s_2>
+}
+\usection{Problem 2.1.2}
+The general Ising energy for $n$ spins is
+\eqe{
+-beta E &= lsum <i,j> K_{ij} s_i s_j + dsum j n h_j s_j
+}
+The free energy is then (where the first sum is over all spin states)
+\eqe{
+-\beta F &= \ln (\sum exp( lsum <i,j> K_{ij} s_i s_j + dsum j n h_j s_j))
+}
+\usection{Problem 2.1.3}
+If we again consider only $2$ spins
+\eqe{
+<s_1s_2> &= -beta ppK0 \ln (\sum exp( K s_1 s_2 + h_1 s_1 + h_2 s_2))
+&= 1/Z \sum s_1 s_2 exp (Ks_1s_2 + h(s_1 + s_2))
+&= 1/Z (e^K(e^{2h}+e^{-2h})-2e^{-K})
+&= 1/Z 2(e^K \cosh(2h)-e^{-K})
+&= e^K\cosh(2h)-e^{-K}/e^K\cosh(2h)+e^{-K}
+}
+
+Where the sum is over all combinations of $s_1 = \pm 1$ and $s_2 = \pm 1$. At $h=0$
+\eqe{
+<s_1 s_2> &= \tanh(K)
+}
+\usection{Problem 2.3.1}
+

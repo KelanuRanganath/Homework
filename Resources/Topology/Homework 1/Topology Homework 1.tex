@@ -1,0 +1,27 @@
+\uchapter{Topological Spaces}
+
+\usection{Exercise 1}
+Show that the intersection of a family of topologies for $X$ is a topology for $X$.
+\subsection*{Solution}
+Let $\mathcal{T}$ be the intersection of a family of topologies on $X$. Since every topology on $X$ contains the empty set and $X$ it follows that both the empty set and $X$ are elements of $\mathcal{T}$.
+
+Consider a collection of elements $U_k \in \mathcal{T}$. Then the collection $U_k$ is apart of every topology in the family, pick one say $\mathcal{T}_i$, then $\bigcup U_k \in \mathcal{T}_i$. So without loss of generality the union of $U_k$ is in every topology in the family and $\bigcup U_k \in \mathcal{T}$.
+
+Pick two topologies $U_0$ and $U_1$ from $\mathcal{T}$
+
+\pagebreak
+\usection{Exercise 2}
+Let $X$ be a set and let $\mathcal{T}$ be the family of subsets $U$ of $X$ such that $X \setminus U$ is finite, together with the empty set $\emptyset$. Show that $\mathcal{T}$ is a topology.
+
+\subsection*{Solution}
+By construction $\emptyset \in \mathcal{T}$. If we consider $U = X$ then $U \setminus X = \emptyset$ which is of course finite, so $X \in \mathcal{T}$.
+
+Consider a collection $U_k$ of elements of $\mathcal{T}$, then 
+\eqe{
+X minus \bigcup U_k &= X intersect (\bigcup U_k)^c
+&= X intersect (\bigcap U_k^c)
+&= \bigcap (X intersect U_k^c)
+&= \bigcap X minus U_k
+}
+
+The final intersection is an intersection of finite sets, which is itself finite, so $\bigcup U_k \in \mathcal{T}$

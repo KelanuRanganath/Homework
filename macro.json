@@ -1,8 +1,14 @@
 {
-"*":"^\\ast",
-"@":"\\bigg\\rvert",
-"infinity":"\\infty",
-"\\sqrt ":"sqrt",
-"sqrt":"\\sqrt",
-"integrate":"\\int"
+"integral":"\\int",
+"alpha":"\\alpha",
+"beta":"\\beta",
+"epsilon":"\\epsilon",
+"mu":"\\mu",
+"exp":"\\exp",
+"%.%.%.":"\\cdots",
+"intersect":"\\cap",
+"union":"\\cup",
+"minus":"\\setminus",
+"subset":"\\subseteq",
+"implies":"\\implies"
 }

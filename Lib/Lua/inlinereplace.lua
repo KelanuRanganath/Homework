@@ -1,16 +1,16 @@
 lunajson = require 'Lib/Lua/lunajson/lunajson'
 
 function inlinereplace(input_string)
-
+    local output_string = input_string
+    
     -- open the json file
     local jsonfile = io.open('macro.json',"r"):read "*a"
     -- decode json file
     local macros = lunajson.decode(jsonfile)
 
     -- autoreplace from macro file
-    local output_string = input_string
     for pat, repl in pairs(macros) do
-        output_string = output_string:gsub(pat,repl)
+        output_string = output_string:gsub("([^\\])"..pat,"%1"..repl)
     end
 
     -- more complicated inline replacements
@@ -73,5 +73,8 @@ function inlinereplace(input_string)
     end
     output_string = fraction(output_string)
 
-    return output_string
+    begin_string = '\\begin{equation}\\begin{split}'
+    end_string = '\\end{split}\\end{equation}'
+    
+    return table.concat({begin_string, output_string, end_string})
 end
