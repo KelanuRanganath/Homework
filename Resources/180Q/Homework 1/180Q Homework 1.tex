@@ -1,0 +1,71 @@
+\usection{Laser Safety}
+\subsection*{Part A}
+Class I lasers emit a visible light less than 0.39mW, or are in an enclosure that requires a tool to open. Safe for eye exposure.
+
+Class II lasers emit a visible beam of less than 1mW. Eye damage is likely to occur after a 1/4 second exposure.
+
+Class III lasers emit a visible beam from 1mW up to 5mW. Any incidental exposure has some risk of eye damage.
+
+Class IV lasers emit a visible beam of 600mW or more. Can cause burns and reflected or diffused light pose severe eye damage risk.
+
+Optical density is the transmittance of a material on a log scale and is calculated by
+\eqe{
+OD &= -\log(T)
+}
+
+MPE stands for maximum permissible exposure, which is the maximum incident radiant exposure without causing harm.
+
+\subsection*{Part B}
+The latency in milli-seconds for the human blink reflex is $34.4ms$ on average. The MPE(E) for visible CW laser light is
+\eqe{
+MPE(E) &= \frac{1.8t^{0.75}}{t}
+       &\approx 4.18 \frac{mW}{cm^2}
+}
+
+\subsection*{Part C}
+Depending on the wavelength, rep rate, and peak intensity the most sensitive part of the eye is the retina followed by the cornea and lens.
+
+\subsection*{Part D}
+The most dangerous wavelengths are those that the human eye doesn't have a blink response and the ocular region.
+
+\subsection*{Part E}
+You should select laser goggles such that the potential incident power for the laser you're working with is attenuated to within the MPE. For example a $650nm$ CW laser with an average power of $1W$ would require goggles with at least an OD of $3$ at $650nm$. Of course, if the laser is pulsed, then you would want to calculate the peak power of the pulse and select the right OD for that power. 
+
+\usection{Back-reflection From Optics}
+The index of refraction at $635nm$ of air at STP is $1.000273$ and $1.4570$ for fused silica.
+Assuming that the laser is normal to the optics, the reflectance is then
+\eqe{
+R_{s \lor p} &= ( n_1-n_2/n_1+n_2 ) ( n_1-n_2/n_1+n_2 )^\ast
+	     &= 0.03455
+}
+
+So the power lost at the interface of the optic is $P_{incident}\cdot0.03455$.
+
+The power transmitted through a lens on the first past is $P_iT^2$, due to back reflection inside the optics a smaller portion makes it through $PiT^2R^2$, this happens an infinite number of times and the total transmitted power can be written as a geometric series.
+\eqe{
+P_T &= P_iT^2 lsum k (R^2)^k
+    &= P_i 1-R/1+R
+\implies P_R &= P_i - P_T
+	     &= P_i(1- 1-R/1+R )
+	     &\approx P_i*0.06679
+}
+So approximately $7\%$ of the input power is lost. 
+
+
+\usection{Photodiodes}
+Assuming a CW beam. The responsivity of the DET36A is roughly $0.35A/W$. The current from the PD is
+\eqe{
+A &= V/R
+  &= 4V/100k\Omega
+  &= 0.04mA
+\implies P &= W/0.35A \cdot 0.04mA
+	   &= 0.11mW
+}
+
+The photodiode measures an energy average over time. 
+
+
+\usection{Agreement}
+I understand that the equipment in this laboratory class is both potentially dangerous and extremely expensive. I will therefore work diligently to ensure safety of my lab partner, the equipment, and myself. If I have any questions about how to proceed I will ask the TA or the professor BEFORE I act.
+
+January 7th, 2025

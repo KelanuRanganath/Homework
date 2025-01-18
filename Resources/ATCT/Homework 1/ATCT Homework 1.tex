@@ -68,9 +68,20 @@ lsum 0<y<\infty y mu(g^{-1}(\{y\})) &= lsum 0<y<\infty y mu(A_y)
 }
 
 Where in the last line we note that $A_y$ partitions $X$.
-But by definition
-\eqe{
 
+But by definition we know that
+\eqe{
+lsum i g(x_i) p_i &\leq lsum i f(x_i) p_i 
+}
+
+WLOG the inequality in (2.5) is strictrly greater than. STAC there exsits an $\alpha \in \mathbb{R}$ such that, for all $g$,
+\eqe{
+lsum i g(x_i)p_i < \alpha < \alpha + \epsilon < lsum i f(x_i) p_i
+}
+
+Then, since $X$ is finite, let $n = |X|$ and
+\eqe{
+h(x) &= (\alpha+\epsilon)/n
 }
 
 \usection{Exercise A.6}
