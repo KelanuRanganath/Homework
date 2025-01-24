@@ -1,13 +1,161 @@
 \usection{Crossed Polarizers}
+The first polarizer filters the light such that $\psi = (a_H, 0)$, now suppose that the next filter's vertical axis is offset by an angle $\theta$ from the first polarizer.
 
+The Jones matrix is then just the standard vertical polarizer in a frame rotated by $\theta$
+$$
+T = RT' = \begin{pmatrix}
+    \cos \theta & -\sin \theta\\
+    \sin \theta & \cos \theta
+\end{pmatrix}
+\begin{pmatrix}
+    1 & 0\\
+    0 & 0
+\end{pmatrix}
+= \begin{pmatrix}
+    \cos \theta & 0 \\
+    \sin \theta & 0 
+\end{pmatrix}
+$$
+The new Jones vector is
+$$
+\psi_1 = a_H(\cos \theta, \sin \theta)
+$$
+Finally we go through the crossed polarizer, which removes the vertical compnoent, so
+$$
+\psi_2 = (0, a_H \sin \theta)
+$$
 
 \usection{Polarizing Beam Splitter}
-
+A polarizing beam splitter separates lights by polarization. Suppose the incoming polarization is $\psi = (a_H, a_V)$, then the Jones matricies
+$$
+T_1 = \begin{pmatrix}
+    1 & 0 \\
+    0 & 0
+\end{pmatrix}
+$$
+and
+$$
+T_2 = \begin{pmatrix}
+    0 & 0 \\
+    0 & 1
+\end{pmatrix}
+$$
+The outgoing vectors are
+$$
+\psi_1 = (a_H,0)
+$$
+and
+$$
+\psi_2 = (0,a_V)
+$$
+, respectively.
 
 \usection{Waveplate and a PBS}
+The incoming signal is $\psi_0 = (0, a_V)$. The HWP Jones matrix is given by
+$$
+T_{HWP}(\theta) = \begin{pmatrix}
+    \cos 2 \theta & \sin 2 \theta\\
+    \sin 2 \theta & -\cos 2 \theta 
+\end{pmatrix}
+$$
+The QWP Jones matrix is given by
+$$
+T_{QWP}(\theta) = \begin{pmatrix}
+    \cos^2\theta-i\sin^2\theta & (1+i)\cos \theta \sin \theta\\
+    (1+i)\cos \theta \sin \theta & \sin^2 \theta -i \cos^2 \theta 
+\end{pmatrix}
+$$
+The PBS Jones matrix is given by
+$$
+T_{PBS}^{||V} = \begin{pmatrix}
+    1 & 0\\
+    0 & 0
+\end{pmatrix}
+$$
+and
+$$
+T_{PBS}^{\perp V} = \begin{pmatrix}
+    0 & 0\\
+    0 & 1
+\end{pmatrix}
+$$
 
+The transmitted power is then
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ccc}
+         & QWP & HWP\\
+        ||V & \sqrt{2}|\sin \theta \cos \theta | & |\sin 2 \theta |\\
+        \perp V & \sin^4 \theta + \cos^4 \theta & |\cos 2 \theta|\\
+    \end{tabular}
+    \caption{Proportion, assuming unity input power, of transmitted power}
+    \label{tab:my_label}
+\end{table}
 
 \usection{Optical Isolator}
-
+The Jones matrix for a $\frac{\pi}{2}$ quarter-wave plate is
+$$
+T_{QWP}(\frac{\pi}{2}) = \begin{pmatrix}
+    e^{-i\frac{\pi}{4}} & e^{i\frac{\pi}{4}}\\
+    e^{i\frac{\pi}{4}} & e^{-i\frac{\pi}{4}}
+\end{pmatrix}
+$$
+The Jones matrix then for a double pass is
+$$
+T_{QWP}^2(\frac{\pi}{2}) = \begin{pmatrix}
+    0 & 1\\
+    1 & 0
+\end{pmatrix}
+$$
+Finally, if the input signal is then $\psi = (a_H, 0)$, then the output is
+$$
+\psi_{out} = \begin{pmatrix}
+    0 & 1\\
+    1 & 0
+\end{pmatrix} \begin{pmatrix}
+    a_H\\ 0
+\end{pmatrix} = (0, a_H)
+$$
+If we pass this through the horizontal polarizer again, then
+$$
+\psi_{returned} = \begin{pmatrix}
+    1 & 0\\
+    0 & 0
+\end{pmatrix}\begin{pmatrix}
+    0\\ a_H
+\end{pmatrix} = 0
+$$
+So we can see that no reflected light makes it back through the first polarizer.
 
 \usection{Arbitrary Polarization}
+First we will filter our light to start with a pure horizontal polarization, so
+$$
+\psi_i = (a_H, 0)
+$$
+Next we set the eccentricity with a half waveplate
+$$
+T_{HWP}(\theta + \frac{\phi}{2}) = \begin{pmatrix}
+    \cos (2\theta + \phi) & \sin (2\theta + \phi)\\
+    \sin (2\theta + \phi) & -\cos (2\theta + \phi)
+\end{pmatrix}
+$$
+Where $\theta = \frac{1}{2}\arctan(\frac{b}{a})$. Next we use a quarter wave plate to make the polarization elliptical
+$$
+T_{QWP}(\Phi)T_{QWP}(\frac{\pi}{2}) = T_{QWP}(\Phi)\begin{pmatrix}
+    1 & 0\\
+    0 & e^{-i\frac{\pi}{2}}
+\end{pmatrix}
+$$
+Finally, the output phase will be
+$$
+\psi_f = T_{QWP}(\Phi)\begin{pmatrix}
+    1 & 0\\
+    0 & e^{-i\frac{\pi}{2}}
+\end{pmatrix}\begin{pmatrix}
+    \cos (2\theta + \phi) & \sin (2\theta + \phi)\\
+    \sin (2\theta + \phi) & -\cos (2\theta + \phi)
+\end{pmatrix} \begin{pmatrix}
+    a_H \\ 0
+\end{pmatrix}
+$$

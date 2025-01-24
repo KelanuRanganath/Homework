@@ -1,16 +1,209 @@
 \usection{Spin Echo And Quantum Measurement}
 \subsection*{Part a}
+We want to find
+\eqe{
+P &= |\braket{\varphi_i | \varphi_f}|^2
+}
+
+Where
+\eqe{
+\ket{\varphi_f} &= R_x( \pi/2 ) \hat{U}( \tau; \tau/2 )R_x (\pi) \hat{U}( \tau/2 ;0 ) R_x( \pi/2 )\ket{\varphi_i}
+}
+
+The rotation operators are
+\eqe{
+R_x(\pi) &= -i\sigma_x
+R_x( \pi/2 ) &= 1/\sqrt{2} (\sigma_0 -i\sigma_x)
+}
+
+The Hamiltonian is
+\eqe{
+H &= -\vec{mu}\cdot \vec{B}
+&= g_smu/2 B_{ac}\sin(2\pi\nu t + \phi_0)\sigma_z
+}
+
+Since this Hamiltonian commutes with itself, $[H(t),H(s)]=0$, the time evolution operators are just the matrix exponentials
+\eqe{
+U( \tau/2 ; 0) &= \exp( - i/\hbar  \int_0^{\frac{\tau}{2}} H_S(t') dt' )
+&= \exp( - i/\hbar g_s\mu/4\pi\nu B_{ac} (\cos(\phi_0)-\cos(\pi\nu\tau+\phi_0))\sigma_z)
+&= \cos( \Omega f(\tau, \phi_0))\sigma_0
+&-i\sigma_z\sin( \Omega f(\tau, \phi_0))
+}
+\eqe{
+U( \tau ; \tau/2 ) &= \exp( - i/\hbar  \int_{\frac{\tau}{2}}^\tau H_S(t') dt' )
+&= \exp( - i/\hbar g_s\mu/4\pi\nu B_{ac} (\cos(\pi\nu\tau + \phi_0)-\cos(2\pi\nu\tau+\phi_0))\sigma_z)
+&= \cos( \Omega g(\tau, \phi_0))\sigma_0
+&-i\sigma_z\sin( \Omega g(\tau, \phi_0))
+}
+
+Where
+
+$$\Omega = \frac{g_s \mu B_{ac}}{4\pi\hbar\nu}$$
+$$g(\tau, \phi_0) = \cos(\pi\nu\tau+\phi_0)-\cos(2\pi\nu\tau+\phi_0)$$
+$$f(\tau, \phi_0) &= \cos(\phi_0)-\cos(\pi\nu\tau+\phi_0)$$
+
+We can now calculate the inner product
+\eqe{
+P &= \cos^2(\Omega(f+g))
+&= \cos^2(\Omega(\cos(\phi_0)-\cos(2\pi\nu\tau+\phi_0)))
+}
+
+To find the point where the spin is most sensitive to the change in $B$ field we want to know the maxima of the rate of change of $P$ with respect to $B$, which is the second derivative, calculating
+\eqe{
+\frac{d^2P}{dB^2} &= (\frac{d\Omega}{dB})^2 \frac{d^2P}{d\Omega^2}
+&= 2(\cos(\phi_0)-\cos(2\pi\nu\tau+\phi_0))^2
+&\times (1-2\cos^2(\Omega(\cos(\phi_0)-\cos(2\pi\nu\tau+\phi_0))))
+&= 0
+}
+
+This happens when (throwing away terms for minimas)
+$$
+\sin(\pi\nu\tau+\phi_0)\sin(\pi\nu\tau) = 0
+$$
+or
+$$
+\sin(\pi\nu\tau+\phi_0)\sin(\pi\nu\tau) =\frac{2\pi^2 \hbar \nu}{g_s \mu B_{ac}} (\frac{3}{4}+n )
+$$
+The first condition occurs when
+$$
+\nu\tau = k
+$$
+or
+$$
+\nu\tau + \frac{\phi_0}{\pi} = j
+$$
+So there is a phase and non-phase dependent sensitivity peak when the time scale is a multiple of the ac signal, or when the signal makes half a cycle.
+
+The second term is transcendental and goes to a minima for a fine set of $\tau$. Changing the phase offset will change when in the cycle the sensitivity is but not how many there are. This set of sensitivity peaks will come from when the ac signal is resonant with the characteristic frequency of the two-level system.
 
 \subsection*{Part b}
+The final rotation operator becomes
+\eqe{
+R_y (\frac{\pi}{2}) &= 1/\sqrt{2} (\sigma_0 -i\sigma_y)
+}
 
+The final expectation value is then
+\eqe{
+P &= \cos^2(\Omega(f+g)- \pi/4 )
+&= \cos^2(\Omega(1-\cos(2\pi\nu\tau))- \pi/4 )
+&= \cos^2(\frac{g_s \mu B_{ac}}{4\pi\hbar\nu}(1-\cos(2\pi\nu\tau))- \pi/4 )
+}
+
+We can't resolve a signal below the uncertainty of the projection operator, which goes as
+\eqe{
+\sigma_P^2 &= \braket{P^2}-\braket{P}^2
+}
 \subsection*{Part c}
+For the Hamiltonian
+\eqe{
+H = \frac{g_s \mu}{2}B_{nuc}\sin(\omega t + \phi_0)\sigma_z
+}
 
+The new spin echo signal is
+\eqe{
+P(\phi_0) &= \cos^2(\frac{g_s\mu B_{nuc}}{2\hbar \omega}(\cos \phi_0 - \cos(\omega t + \phi_0)))
+}
+which is a function of a random variable $\phi_0$, the average spin echo response is then
+\eqe{
+\braket{P} &= 1/2\pi dint -\pi \pi \cos^2(\frac{g_s\mu B_{nuc}}{2\hbar \omega}(\cos \phi_0 - \cos(\omega t + \phi_0))) d\phi_0
+&= 1/4\pi dint -\pi \pi (1 + \cos(\frac{2g\mu B}{\hbar \omega}\sin( \frac{\omega t}{2})\sin(\frac{\omega t}{2} + \phi_0))) d\phi_0
+&= 1/4\pi \int_{\phi_0 = -\pi}^{\phi_0 = \pi} (1 + \cos(\frac{2g\mu B}{\hbar \omega}\sin( \frac{\omega t}{2})\sin(u))) du
+&= 1/2 + 1/4\pi \int_{\frac{\omega t}{2}+\pi}^{\frac{\omega t}{2}-\pi} \cos(\alpha \sin(u))du
+&= 1/2 + 1/2 J_0(\alpha)
+}
+
+Collapse and revival happens at the zeros of the Bessel function, ie
+$$
+\frac{2g\mu B}{\hbar \omega}\sin( \frac{\omega t}{2}) = j_m
+$$
+where $j_m$ is a zero of the Bessel function.
 
 \usection{Quantum Logic Spectroscopy}
 \subsection*{Part a}
+The final state of the system is
+\eqe{
+\ket{\psi_f} &= R_n( \pi/2 ) \hat{U}(T) \ket{\psi_i}
+}
+
+Where the rotation operator is
+\eqe{
+R_n( \pi/2 ) &= 1/\sqrt{2} (\sigma_0-i(\alpha \sigma_x + \beta \sigma_y))
+}
+
+And the time evolution operator is
+\eqe{
+\hat{U}(T) &= \exp(-i H/\hbar T)
+&= lsum m  1/m! (-i gT/\hbar \sigma_z^A \sigma_z^B )^m
+&= lsum m  1/(2m)! (-i gT/\hbar )^{2m} \sigma_0^A \sigma_0^B + lsum m  1/(2m+1)! (-i gT/\hbar )^{2m+1} \sigma_z^A \sigma_z^B
+&= \cosh(-i gT/\hbar) \sigma_0^A \sigma_0^B + \sinh(-i gT/\hbar) \sigma_z^A \sigma_z^B
+}
+
+Applying the condition that
+\eqe{
+R_n( \pi/2 ) \ket{0} &= 1/\sqrt{2} (\ket{0} + e^{i\phi} \ket{1})
+\implies R_n( \pi/2 ) &= 1/\sqrt{2} (\sigma_0 +i\sin \phi \sigma_x-i\cos \phi \sigma_y)
+\implies R_n ( \pi/2 ) \ket{1} &= 1/\sqrt{2} ( \ket{1} - e^{-i\phi} \ket{0})
+}
+
+Finally, the initial state is given as
+\eqe{
+\ket{\psi_i} &= 1/\sqrt{2} (\ket{0} + \ket{1}) \ket{\psi_B}
+}
+
+Now we can calculate the final state before measurement
+\eqe{
+\ket{\psi_f} &= 1/2 \cos( gT/\hbar ) ((1-e^{-i\phi})\ket{0} + (1+e^{i\phi})\ket{1}) \ket{\psi_B}
+&+ i/2 \sin ( gT/\hbar )((1+e^{-i\phi})\ket{0} + (e^{i\phi}-1)\ket{1}) \sigma_z \ket{\psi_B}
+}
 
 \subsection*{Part b}
 
-\subsection*{Part c}
+First we'll rewrite the B qubit as
+\eqe{
+\ket{\psi_B} &= a\ket{0}+b\ket{1}
+}
 
-\subsection*{Extra Credit}
+Then we can rewrite the total final state
+\eqe{
+\ket{\psi_f} &= 1/2 \cos( gT/\hbar ) ((1-e^{-i\phi})\ket{0} + (1+e^{i\phi})\ket{1}) (a\ket{0}+b\ket{1})
+&+ i/2 \sin ( gT/\hbar )((1+e^{-i\phi})\ket{0} + (e^{i\phi}-1)\ket{1}) (a\ket{1}-b\ket{0})
+&= \ket{0}\ket{0} 1/2 (a(1-e^{-i\phi})\cos( gT/\hbar ) -ib(1+e^{-i\phi})\sin( gT/\hbar ))
+&+ \ket{1}\ket{1} 1/2 (b(1+e^{i\phi})\cos( gT/\hbar ) +ia(e^{i\phi}-1)\sin( gT/\hbar ))
+&+ \ket{0}\ket{1} 1/2 (b(1-e^{-i\phi})\cos( gT/\hbar ) +ia(1+e^{-i\phi})\sin( gT/\hbar )) 
+&+ \ket{1}\ket{0} 1/2 (a(1+e^{i\phi})\cos( gT/\hbar ) -ib(e^{i\phi}-1)\sin( gT/\hbar )) 
+}
+
+We want to pick values for $T$ and $\phi$ such that the cross terms go to $0$. This happens when
+$$
+a\cos( \phi/2 )\cos( gT/\hbar ) +b\sin( \phi/2 )\sin( gT/\hbar ) = 0
+$$
+and
+$$
+b\sin( \phi/2 )\cos( gT/\hbar ) +a\cos(\phi/2)\sin( gT/\hbar ) = 0
+$$
+This implies
+$$
+\cot(gT/\hbar) = \tan(gT/\hbar)
+$$
+
+
+\subsection*{Part c}
+We first want to calculate $p_{err}^0$ and $p_{err}^1$. The expected photon measurement rate depends on whether the system is in $\ket{0_A}$ or $\ket{1_A}$, $0$ and $\eta$, respectively. We repeat the measurement $N$ times. If each measurement is independent we can model this as a Poisson distribution
+
+Suppose we are in state $\ket{0_B}$, then $p_{err}^0$ is the probability that we measure $1$ or more photons after $N$ measurements of qubit A.
+
+\eqe{
+p_{err}^0 &= \frac{0^1e^{}}{1!}
+&= 0
+}
+
+Suppose we are in state $\ket{1_B}$, then the $p_{err}^1$ is the probability that we measure $0$ photons after $N$ measurements of qubit A.
+
+\eqe{
+p_{err}^1 &= \frac{(\eta N)^0e^{-\eta N}}{0!}
+}
+
+So the fidelity is
+\eqe{
+F = 1-e^{-\eta N}
+}
